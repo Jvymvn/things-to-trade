@@ -9,7 +9,7 @@ export default class ThingListItem extends Component {
         return (
             <div className='TradeListItem'>
                 <h2 className='TradeListTitle__title'>{trade.title}</h2>
-                <div classname="TradeTerm__one">
+                <div className="TradeTerm__one">
                     <label>You Give:</label>
                     <div className='TradeListItem__image1'><img src={trade.image1} alt='image1' /></div>
                 </div>

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Button, Input, Required } from '../Utils/Utils'
+import React, { Component } from 'react';
+import { Button, Input, Required } from '../Utils/Utils';
+import { Link } from 'react-router-dom';
 
 export default class RegistrationForm extends Component {
     static defaultProps = {
@@ -52,7 +53,7 @@ export default class RegistrationForm extends Component {
                     Register
                 </Button><br />
                 <span>Already a member?</span><br />
-                <a href='#'>Login</a>
+                <Link to='/login'>Login</Link>
             </form>
         )
     }

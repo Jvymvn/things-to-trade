@@ -15,6 +15,7 @@ const TradeContext = React.createContext({
     clearTrade: () => { },
     setComments: () => { },
     addComment: () => { },
+    updateTrade: () => { },
 })
 
 export default TradeContext

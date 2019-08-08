@@ -34,7 +34,7 @@ export class TradeListProvider extends Component {
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
-            setTradeList: this.setState,
+            setTradeList: this.setTradeList,
         }
         return (
             <TradeListContext.Provider value={value}>
