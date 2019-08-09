@@ -2,22 +2,32 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-// import TokenService from '../../services/token-service';
+import TokenService from '../../services/token-service';
+import TradeContext from '../../contexts/TradeContext';
 import './header.css'
 
 class Header extends Component {
-    // handleLogoutClick = () => {
-    //     TokenService.clearAuthToken()
-    // }
+    static contextType = TradeContext
+
+
+    handleLogoutClick = () => {
+        const { logOutUser } = this.context
+        logOutUser()
+        TokenService.clearAuthToken()
+    }
 
     renderLogoutLink() {
         return (
             <div className='Header__logged-in'>
+                <Link to='/add-trade'>
+                    Add Trade
+                </Link>
+                {' '}
                 <Link
-                    //   onClick={this.handleLogoutClick}
+                    onClick={this.handleLogoutClick}
                     to='/'>
                     Logout
-            </Link>
+                </Link>
             </div>
         )
     }
@@ -28,25 +38,36 @@ class Header extends Component {
                 <Link
                     to='/login'>
                     Log in
-            </Link>
+                </Link>
+                {' '}
                 <Link
                     to='/'>
                     Register
-            </Link>
+                </Link>
             </div>
         )
     }
 
+    componentDidMount() {
+        const { logInUser } = this.context
+        if (TokenService.hasAuthToken()) {
+            logInUser()
+        }
+    }
+
+
+
     render() {
+        const { loggedIn } = this.context
         return (
             <>
                 <nav className="Header">
                     <div className="Header_title">
                         <h1><Link to='/trades'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></Link></h1>
                     </div>
-                    {/* {TokenService.hasAuthToken()
-                    ? this.renderLogoutLink()
-                    : this.renderLoginLink()} */}
+                    {loggedIn === true
+                        ? this.renderLogoutLink()
+                        : this.renderLoginLink()}
                 </nav>
             </>
         )

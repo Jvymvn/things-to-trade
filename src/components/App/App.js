@@ -6,6 +6,8 @@ import TradeListPage from '../../routes/TradeListPage/TradeListPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+// import TradeDetailed from '../../routes/TradeDetailed/TradeDetailed';
+import AddTrade from '../AddTrade/AddTrade'
 
 class App extends Component {
   // constructor(props) {
@@ -35,6 +37,8 @@ class App extends Component {
             <Route exact path={'/'} component={RegistrationPage} />
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/trades'} component={TradeListPage} />
+            {/* <Route path={'/trades/:tradeId'} component={TradeDetailed} /> */}
+            <Route path={'/add-trade'} component={AddTrade} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

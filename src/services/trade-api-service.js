@@ -1,10 +1,11 @@
-import config from '../config'
+import config from '../config';
+import TokenService from '../services/token-service';
 
 const TradeApiService = {
     getTrades() {
         return fetch(`${config.API_ENDPOINT}/trades`, {
             headers: {
-                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
         })
             .then(res =>
@@ -16,7 +17,7 @@ const TradeApiService = {
     getTrade(tradeId) {
         return fetch(`${config.API_ENDPOINT}/trades/${tradeId}`, {
             headers: {
-
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
         })
             .then(res =>
@@ -25,6 +26,8 @@ const TradeApiService = {
                     : res.json()
             )
     },
+
+    //UpdateTrade, PostTrade
 }
 
 export default TradeApiService

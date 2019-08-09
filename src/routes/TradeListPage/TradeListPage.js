@@ -17,7 +17,6 @@ export default class TradeListPage extends Component {
 
     renderTrades() {
         const { tradeList = [] } = this.context
-        console.log(tradeList)
 
         const newTrades = [];
         // console.log(TRADES)

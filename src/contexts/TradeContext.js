@@ -7,14 +7,13 @@ export const nullTrade = {
 
 const TradeContext = React.createContext({
     trade: nullTrade,
+    loggedIn: false,
     comments: [],
     error: null,
     setError: () => { },
     clearError: () => { },
     setTrade: () => { },
     clearTrade: () => { },
-    setComments: () => { },
-    addComment: () => { },
     updateTrade: () => { },
 })
 
@@ -23,6 +22,7 @@ export default TradeContext
 export class TradeProvider extends Component {
     state = {
         trade: nullTrade,
+        loggedIn: false,
         error: null,
     };
 
@@ -39,33 +39,32 @@ export class TradeProvider extends Component {
         this.setState({ trade })
     }
 
-    setComments = comments => {
-        this.setState({ comments })
-    }
-
     clearTrade = () => {
         this.setTrade(nullTrade)
-        this.setComments([])
     }
 
-    addComment = comment => {
-        this.setComments([
-            ...this.state.comments,
-            comment
-        ])
+    logInUser = () => {
+        this.setState({ loggedIn: true })
     }
+
+    logOutUser = () => {
+        this.setState({ loggedIn: false })
+    }
+
+
 
     render() {
         const value = {
             trade: this.state.trade,
+            loggedIn: this.state.loggedIn,
             comments: this.state.comments,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
             setTrade: this.setTrade,
-            setComments: this.setComments,
             clearTrade: this.clearTrade,
-            addComment: this.addComment,
+            logInUser: this.logInUser,
+            logOutUser: this.logOutUser,
         }
         return (
             <TradeContext.Provider value={value}>

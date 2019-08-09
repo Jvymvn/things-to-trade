@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import config from '../config'
-import { Section, Input, Button } from '../../components/Utils/Utils'
+import config from '../../config';
+import { Section, Input, Button } from '../../components/Utils/Utils';
+import TradeContext from '../../contexts/TradeContext';
+import TokenService from '../../services/token-service';
 
-//tradelistcontext tradecontext
 
 const Required = () => (
     <span className='AddTrade_required'>*</span>
@@ -16,27 +17,31 @@ export default class AddTrade extends Component {
         }).isRequired,
     };
 
-    // static contextType = TradeContext
+    static contextType = TradeContext
 
     state = {
+        title: '',
+        image1: '',
+        image2: '',
         error: null,
     };
 
     handleSubmit = e => {
         e.preventDefault()
 
-        const { title, image1, image2 } = e.target
+        console.log(this.state)
         const trade = {
-            title: title.value,
-            image1: image1.value,
-            image2: image2.value,
+            title: this.state.title,
+            image1: this.state.image1,
+            image2: this.state.image2,
         }
         this.setState({ error: null })
-        fetch(config.API_ENDPOINT, {
+        fetch(`${config.API_ENDPOINT}/trades`, {
             method: 'POST',
             body: JSON.stringify(trade),
             headers: {
                 'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
             .then(res => {
@@ -46,11 +51,13 @@ export default class AddTrade extends Component {
                 return res.json()
             })
             .then(data => {
-                title.value = ''
-                image1.value = ''
-                image2.value = ''
-                this.context.addTrade(data)
-                this.props.history.push('/')
+                this.setState({
+                    title: '',
+                    image1: '',
+                    image2: '',
+                })
+                // this.context.addTrade(data)
+                this.props.history.push('/trades')
             })
             .catch(error => {
                 console.log(error)
@@ -58,8 +65,23 @@ export default class AddTrade extends Component {
             })
     }
 
+    handleTitleChange = (ev) => {
+        // console.log(ev.target.value)
+        this.setState({ title: ev.target.value })
+    }
+
+    handleImage1Change = (ev) => {
+        // console.log(ev.target.value)
+        this.setState({ image1: ev.target.value })
+    }
+
+    handleImage2Change = (ev) => {
+        // console.log(ev.target.value)
+        this.setState({ image2: ev.target.value })
+    }
+
     handleClickCancel = () => {
-        this.props.history.push('/')
+        this.props.history.push('/trades')
     };
 
     render() {
@@ -86,6 +108,7 @@ export default class AddTrade extends Component {
                             id='title'
                             placeholder="I want to trade my Windows for a Mac"
                             required
+                            onChange={this.handleTitleChange}
                         />
                     </div>
                     <div>
@@ -100,6 +123,7 @@ export default class AddTrade extends Component {
                             id='image1'
                             placeholder='http://placekitten.com/200/300'
                             required
+                            onChange={this.handleImage1Change}
                         />
                     </div>
                     <div>
@@ -114,6 +138,7 @@ export default class AddTrade extends Component {
                             id='image2'
                             placeholder='http://placekitten.com/200/300'
                             required
+                            onChange={this.handleImage2Change}
                         />
                     </div>
                     <div className='AddTrade_buttons'>
@@ -121,7 +146,7 @@ export default class AddTrade extends Component {
                             Cancel
                         </Button>
                         {' '}
-                        <Button type='submit'>
+                        <Button type='submit' onClick={this.handleSubmit}>
                             Post Trade
                         </Button>
                     </div>

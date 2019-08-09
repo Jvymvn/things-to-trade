@@ -3,9 +3,13 @@ import React, { Component } from 'react'
 const TradeListContext = React.createContext({
     tradeList: [],
     error: null,
+    addTrade: () => { },
+    deleteTrade: () => { },
+    updateTrade: () => { },
     setError: () => { },
     clearError: () => { },
     setTradeList: () => { },
+
 })
 export default TradeListContext
 
@@ -17,6 +21,16 @@ export class TradeListProvider extends Component {
 
     setTradeList = tradeList => {
         this.setState({ tradeList })
+    }
+
+    addTrade = trade => {
+        this.setState({
+            tradeList: [...this.state.tradeList, trade],
+        })
+    }
+
+    deleteTrade = tradeId => {
+        const newTradeList = this.state.tradeList
     }
 
     setError = error => {
