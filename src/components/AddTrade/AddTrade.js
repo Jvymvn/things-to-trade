@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import config from '../../config';
 import { Section, Input, Button } from '../../components/Utils/Utils';
-import TradeContext from '../../contexts/TradeContext';
+import TradeListContext from '../../contexts/TradeListContext'
 import TokenService from '../../services/token-service';
 
 
@@ -11,13 +11,13 @@ const Required = () => (
 )
 
 export default class AddTrade extends Component {
-    static propTypes = {
-        history: PropTypes.shape({
-            push: PropTypes.func,
-        }).isRequired,
-    };
+    // static propTypes = {
+    //     history: PropTypes.shape({
+    //         push: PropTypes.func,
+    //     }).isRequired,
+    // };
 
-    static contextType = TradeContext
+    static contextType = TradeListContext;
 
     state = {
         title: '',
@@ -29,7 +29,6 @@ export default class AddTrade extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        console.log(this.state)
         const trade = {
             title: this.state.title,
             image1: this.state.image1,
@@ -56,7 +55,7 @@ export default class AddTrade extends Component {
                     image1: '',
                     image2: '',
                 })
-                // this.context.addTrade(data)
+                this.context.addTrade(data)
                 this.props.history.push('/trades')
             })
             .catch(error => {

@@ -10,20 +10,12 @@ import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import AddTrade from '../AddTrade/AddTrade'
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     trades: [],
-  //     showAddTrade: false
-  //   };
-  // }
 
-  state = { hasError: false }
+  state = {
+    hasError: false,
+  };
 
-  static getDerivedStateFromError(error) {
-    console.log(error)
-    return { hasError: true }
-  }
+
 
   render() {
     return (
@@ -48,3 +40,14 @@ class App extends Component {
 }
 
 export default App;
+
+
+// <Switch>
+// <Redirect from='/' to='/dashboard'/>
+// <Route path='/dashboard' render={(props) => (
+// auth.isAuthenticated === true
+// ? <Component {...props} />
+// : <Redirect to='/login' />
+// )} 
+// />
+// </Switch>

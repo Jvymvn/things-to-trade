@@ -63,7 +63,7 @@ class Header extends Component {
             <>
                 <nav className="Header">
                     <div className="Header_title">
-                        <h1><Link to='/trades'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></Link></h1>
+                        <h1>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
                     </div>
                     {loggedIn === true
                         ? this.renderLogoutLink()
