@@ -23,6 +23,14 @@ class Header extends Component {
                     Add Trade
                 </Link>
                 {' '}
+                <Link to='/trades'>
+                    Active Trades
+                </Link>
+                {' '}
+                <Link to='/accepted'>
+                    Completed Trades
+                </Link>
+                {' '}
                 <Link
                     onClick={this.handleLogoutClick}
                     to='/'>

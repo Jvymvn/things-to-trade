@@ -7,6 +7,7 @@ import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 // import TradeDetailed from '../../routes/TradeDetailed/TradeDetailed';
+import AcceptedTrades from '../../routes/AcceptedTrades/AcceptedTrades'
 import AddTrade from '../AddTrade/AddTrade'
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path={'/login'} component={LoginPage} />
             <Route path={'/trades'} component={TradeListPage} />
             {/* <Route path={'/trades/:tradeId'} component={TradeDetailed} /> */}
+            <Route path={'/accepted'} component={AcceptedTrades} />
             <Route path={'/add-trade'} component={AddTrade} />
             <Route component={NotFoundPage} />
           </Switch>
