@@ -26,13 +26,27 @@ export default class AddTrade extends Component {
         error: null,
     };
 
+    parseJwt = (token) => {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    };
+
     handleSubmit = e => {
         e.preventDefault()
+
+        let parsedJwtPayload = this.parseJwt(localStorage.getItem('trade-client-auth-token'))
+        console.log(parsedJwtPayload)
 
         const trade = {
             title: this.state.title,
             image1: this.state.image1,
             image2: this.state.image2,
+            user_id: parsedJwtPayload.user_id,
         }
         this.setState({ error: null })
         fetch(`${config.API_ENDPOINT}/trades`, {
