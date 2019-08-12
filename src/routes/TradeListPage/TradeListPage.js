@@ -9,6 +9,10 @@ export default class TradeListPage extends Component {
 
     static contextType = TradeListContext;
 
+    componentDidMount() {
+        this.context.fetchTrades()
+    }
+
     render() {
         const { tradeList } = this.context
         //----------------------

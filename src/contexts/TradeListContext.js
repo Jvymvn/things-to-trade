@@ -57,7 +57,7 @@ export class TradeListProvider extends Component {
         })
     }
 
-    componentDidMount() {
+    fetchTrades() {
         fetch(`${config.API_ENDPOINT}/trades`, {
             method: 'GET',
             headers: {
@@ -94,6 +94,7 @@ export class TradeListProvider extends Component {
             setError: this.setError,
             clearError: this.clearError,
             setTradeList: this.setTradeList,
+            fetchTrades: this.fetchTrades,
         }
         return (
             <TradeListContext.Provider value={contextValue}>
