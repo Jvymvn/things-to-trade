@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
-import TradeListItem from '../../components/TradeListItem/TradeListItem'
-import { Link } from 'react-router-dom';
+import AcceptedTradeItem from '../../components/AcceptedTradeItem/AcceptedTradeItem'
+
 
 export default class AcceptedTrades extends Component {
     static contextType = TradeListContext;
@@ -27,18 +27,16 @@ export default class AcceptedTrades extends Component {
 
         const acceptedTrades = []
         tradeList.forEach(trade => {
-            console.log(trade)
-            console.log(parsedJwtPayload.user_id)
-            if (trade.user_id === parsedJwtPayload.user_id) {
+            if (trade.user_id === parsedJwtPayload.user_id && trade.active === false) {
                 acceptedTrades.push(trade)
             }
         })
         return (
-            <section>
+            <section className='TradeList'>
                 <h2>Accepted Trades</h2>
-                <ul>
+                <ul className='TradeList_list' aria-live='polite'>
                     {acceptedTrades.map(trade =>
-                        <TradeListItem key={trade.id} {...trade} />
+                        <AcceptedTradeItem key={trade.id} {...trade} />
                     )}
                 </ul>
             </section>

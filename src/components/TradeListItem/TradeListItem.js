@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
-// import { Link } from 'react-router-dom';
 import config from '../../config';
 import TradeListContext from '../../contexts/TradeListContext';
 import TokenService from '../../services/token-service';
 import { faVoteYea } from '@fortawesome/free-solid-svg-icons';
+import './TradeListItem.css'
 
 
 export default class TradeItem extends Component {
@@ -64,7 +64,7 @@ export default class TradeItem extends Component {
                             <FontAwesomeIcon className='gold' icon={faExchangeAlt} />
                             {' '}
                             {/* <Link to={`/trades/${props.id}`}><AcceptButton trade={props} /></Link> */}
-                            <button type='Button' onClick={() => this.updateTradeActive(this.props)}><FontAwesomeIcon className='green' icon={faVoteYea} /></button>
+                            <button type='Button' id='Accept' onClick={() => this.updateTradeActive(this.props)}><FontAwesomeIcon className='green' icon={faVoteYea} /></button>
                             <div className='TradeItem_get'>
                                 <label>You Get:</label>
                                 <div className='TradeItem_image_get'><img src={this.props.image2} alt='image2' /></div>
