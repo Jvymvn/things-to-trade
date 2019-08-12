@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import config from '../../config';
 import { Section, Input, Button } from '../../components/Utils/Utils';
 import TradeListContext from '../../contexts/TradeListContext'
 import TokenService from '../../services/token-service';
-
 
 const Required = () => (
     <span className='AddTrade_required'>*</span>
 )
 
 export default class AddTrade extends Component {
-    // static propTypes = {
-    //     history: PropTypes.shape({
-    //         push: PropTypes.func,
-    //     }).isRequired,
-    // };
-
     static contextType = TradeListContext;
 
     state = {
@@ -26,21 +18,10 @@ export default class AddTrade extends Component {
         error: null,
     };
 
-    parseJwt = (token) => {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-
-        return JSON.parse(jsonPayload);
-    };
-
     handleSubmit = e => {
         e.preventDefault()
 
-        let parsedJwtPayload = this.parseJwt(localStorage.getItem('trade-client-auth-token'))
-        console.log(parsedJwtPayload)
+        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem('trade-client-auth-token'))
 
         const trade = {
             title: this.state.title,
@@ -48,7 +29,9 @@ export default class AddTrade extends Component {
             image2: this.state.image2,
             user_id: parsedJwtPayload.user_id,
         }
+
         this.setState({ error: null })
+
         fetch(`${config.API_ENDPOINT}/trades`, {
             method: 'POST',
             body: JSON.stringify(trade),
@@ -99,6 +82,7 @@ export default class AddTrade extends Component {
 
     render() {
         const { error } = this.state
+
         return (
             <Section className='AddTrade'>
                 <h2>Create a trade post</h2>
