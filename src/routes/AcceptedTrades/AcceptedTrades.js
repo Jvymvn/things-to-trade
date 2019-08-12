@@ -5,11 +5,31 @@ import { Link } from 'react-router-dom';
 
 export default class AcceptedTrades extends Component {
     static contextType = TradeListContext;
+
+    componentDidMount() {
+        this.context.fetchTrades()
+    }
+
+    parseJwt = (token) => {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    };
+
+
     render() {
         const { tradeList } = this.context
+        let parsedJwtPayload = this.parseJwt(localStorage.getItem('trade-client-auth-token'))
+
         const acceptedTrades = []
         tradeList.forEach(trade => {
-            if (trade.active === false) {
+            console.log(trade)
+            console.log(parsedJwtPayload.user_id)
+            if (trade.user_id === parsedJwtPayload.user_id) {
                 acceptedTrades.push(trade)
             }
         })
