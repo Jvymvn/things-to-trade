@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input, Required } from '../Utils/Utils';
+import { Button, Input, Required, Section } from '../Utils/Utils';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
 
@@ -35,49 +35,58 @@ export default class RegistrationForm extends Component {
     render() {
         const { error } = this.state
         return (
-            <form className='RegistrationForm' onSubmit={this.handleSubmit}>
-                <div role='alert'>
-                    {error && <p className='red'>{error}</p>}
-                </div>
-                <div className='full_name'>
-                    <label htmlFor='RegistrationForm__full_name'>
-                        Full name <Required />
-                    </label><br />
-                    <Input
-                        name='full_name'
-                        type='text'
-                        required
-                        id='RegistrationForm__full_name'>
-                    </Input>
-                </div>
-                <div className='user_name'>
-                    <label htmlFor='RegistrationForm__user_name'>
-                        User name <Required />
-                    </label><br />
-                    <Input
-                        name='user_name'
-                        type='text'
-                        required
-                        id='RegistrationForm__user_name'>
-                    </Input>
-                </div>
-                <div className='password'>
-                    <label htmlFor='RegistrationForm__password'>
-                        Password <Required />
-                    </label><br />
-                    <Input
-                        name='password'
-                        type='password'
-                        required
-                        id='RegistrationForm__password'>
-                    </Input>
-                </div>
-                <Button type='submit'>
-                    Register
-                </Button><br />
-                <span>Already a member?</span><br />
-                <Link to='/login'>Login</Link>
-            </form>
+            <Section className='container'>
+                <h2 className='row'>Register</h2>
+                <form onSubmit={this.handleSubmit}>
+                    <div role='alert'>
+                        {error && <p className='red'>{error}</p>}
+                    </div>
+                    <div className='row'>
+                        <label htmlFor='RegistrationForm__full_name'>
+                            Full name <Required />
+                        </label><br />
+                        <Input
+                            name='full_name'
+                            type='text'
+                            required
+                            id='Inn'>
+                        </Input>
+                    </div>
+                    <div className='row'>
+                        <label htmlFor='RegistrationForm__user_name'>
+                            User name <Required />
+                        </label><br />
+                        <Input
+                            name='user_name'
+                            type='text'
+                            required
+                            id='Inn'>
+                        </Input>
+                    </div>
+                    <div className='row'>
+                        <label htmlFor='RegistrationForm__password'>
+                            Password <Required />
+                        </label><br />
+                        <Input
+                            name='password'
+                            type='password'
+                            required
+                            id='Inn'>
+                        </Input>
+                    </div>
+                    <div className='row'>
+                        <Button type='submit' id='sub'>
+                            Register
+                </Button>
+                    </div>
+                    <br />
+                    <div className='Already_reg'>
+                        <span>Already a member?</span>
+                        <br />
+                        <Link to='/login' id='link2'>Login</Link>
+                    </div>
+                </form>
+            </Section>
         )
     }
 }

@@ -54,19 +54,19 @@ export default class TradeItem extends Component {
             <TradeListContext.Consumer>
                 {(context) => (
                     <li className='TradeItem'>
-                        <div className='TradeItem_post'>
-                            <h3 className='TradeItem_title'>{this.props.title}</h3>
+                        <h3 className='TradeItem_title'>{this.props.title}</h3>
+                        <div className='TradeItem_container'>
                             <div className="TradeItem_give">
-                                <label>You Give:</label>
+                                <h1>You Give:</h1>
                                 <div className='TradeItem_image_give'><img src={this.props.image1} alt='image1' /></div>
                             </div>
-                            {' '}
-                            <FontAwesomeIcon className='gold' icon={faExchangeAlt} />
-                            {' '}
-                            {/* <Link to={`/trades/${props.id}`}><AcceptButton trade={props} /></Link> */}
-                            <button type='Button' id='Accept' onClick={() => this.updateTradeActive(this.props)}><FontAwesomeIcon className='green' icon={faVoteYea} /></button>
+                            <div className='TradeItem_middle'>
+                                <FontAwesomeIcon className='gold' id='middle_icon' icon={faExchangeAlt} /><br />
+                                {/* <FontAwesomeIcon className='green' icon={faVoteYea} /> */}
+                                <button type='Button' id='Accept' onClick={() => this.updateTradeActive(this.props)}><span>Accept</span></button>
+                            </div>
                             <div className='TradeItem_get'>
-                                <label>You Get:</label>
+                                <h1>You Get:</h1>
                                 <div className='TradeItem_image_get'><img src={this.props.image2} alt='image2' /></div>
                             </div>
                         </div>

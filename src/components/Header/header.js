@@ -19,21 +19,21 @@ class Header extends Component {
     renderLogoutLink() {
         return (
             <div className='Header__logged-in'>
-                <Link to='/add-trade'>
+                <Link to='/add-trade' id='link'>
                     Add Trade
                 </Link>
                 {' '}
-                <Link to='/trades'>
+                <Link to='/trades' id='link'>
                     Active Trades
                 </Link>
                 {' '}
-                <Link to='/accepted'>
+                <Link to='/accepted' id='link'>
                     Completed Trades
                 </Link>
                 {' '}
                 <Link
                     onClick={this.handleLogoutClick}
-                    to='/'>
+                    to='/' id='link'>
                     Logout
                 </Link>
             </div>
@@ -44,12 +44,12 @@ class Header extends Component {
         return (
             <div className='Header__not-logged-in'>
                 <Link
-                    to='/login'>
+                    to='/login' id='link'>
                     Log in
                 </Link>
                 {' '}
                 <Link
-                    to='/'>
+                    to='/' id='link'>
                     Register
                 </Link>
             </div>
@@ -71,7 +71,7 @@ class Header extends Component {
             <>
                 <nav className="Header">
                     <div className="Header_title">
-                        <h1>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
+                        <h1 id='Main_title'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
                     </div>
                     {loggedIn === true
                         ? this.renderLogoutLink()

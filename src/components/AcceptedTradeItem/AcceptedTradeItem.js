@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
+import './AcceptedItem.css';
 
 export default class AcceptedItem extends Component {
     static contextType = TradeListContext;
@@ -11,17 +12,17 @@ export default class AcceptedItem extends Component {
             <TradeListContext.Consumer>
                 {(context) => (
                     <li className='TradeItem'>
-                        <div className='TradeItem_post'>
-                            <h3 className='TradeItem_title'>{this.props.title}</h3>
+                        <h3 className='TradeItem_title' id="gold">{this.props.title}</h3>
+                        <div className='TradeItem_container'>
                             <div className="TradeItem_give">
-                                <label>You Give:</label>
+                                <h1>You Give:</h1>
                                 <div className='TradeItem_image_give'><img src={this.props.image1} alt='image1' /></div>
                             </div>
-                            {' '}
-                            <FontAwesomeIcon className='gold' icon={faExchangeAlt} />
-                            {' '}
+
+                            <FontAwesomeIcon className='gold' id='middle_icon2' icon={faExchangeAlt} />
+
                             <div className='TradeItem_get'>
-                                <label>You Get:</label>
+                                <h1>You Get:</h1>
                                 <div className='TradeItem_image_get'><img src={this.props.image2} alt='image2' /></div>
                             </div>
                         </div>

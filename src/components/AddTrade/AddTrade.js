@@ -3,6 +3,7 @@ import config from '../../config';
 import { Section, Input, Button } from '../../components/Utils/Utils';
 import TradeListContext from '../../contexts/TradeListContext'
 import TokenService from '../../services/token-service';
+import './AddTrade.css'
 
 const Required = () => (
     <span className='AddTrade_required'>*</span>
@@ -84,66 +85,80 @@ export default class AddTrade extends Component {
         const { error } = this.state
 
         return (
-            <Section className='AddTrade'>
+            <Section className='container'>
                 <h2>Create a trade post</h2>
                 <form
-                    className='AddTrade_form'
                     onSubmit={this.handleSubmit}
                 >
                     <div className='AddTrade__error' role='alert'>
                         {error && <p>{error.message}</p>}
                     </div>
-                    <div>
-                        <label htmlFor='title'>
-                            Title
+                    <div className='row'>
+                        <div className="col-25">
+                            <label htmlFor='title'>
+                                Title
                             {' '}
-                            <Required />
-                        </label>
-                        <Input
-                            type='text'
-                            name='title'
-                            id='title'
-                            placeholder="I want to trade my Windows for a Mac"
-                            required
-                            onChange={this.handleTitleChange}
-                        />
+                                <Required />
+                            </label>
+                        </div>
+                        <div class="col-75">
+                            <input
+                                type='text'
+                                name='title'
+                                className='In-st'
+                                id='title'
+                                placeholder="I want to trade my Windows for a Mac"
+                                required
+                                onChange={this.handleTitleChange}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor='image1'>
-                            You Give:
+                    <div className='row'>
+                        <div className="col-25">
+                            <label htmlFor='image1'>
+                                You Give:
                             {' '}
-                            <Required />
-                        </label>
-                        <Input
-                            type='url'
-                            name='image1'
-                            id='image1'
-                            placeholder='http://placekitten.com/200/300'
-                            required
-                            onChange={this.handleImage1Change}
-                        />
+                                <Required />
+                            </label>
+                        </div>
+                        <div class="col-75">
+                            <input
+                                type='url'
+                                name='image1'
+                                className='In-st'
+                                id='image1'
+                                placeholder='http://placekitten.com/200/300'
+                                required
+                                onChange={this.handleImage1Change}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor='image2'>
-                            You Get:
+                    <div className='row'>
+                        <div className="col-25">
+                            <label htmlFor='image2'>
+                                You Get:
                             {' '}
-                            <Required />
-                        </label>
-                        <Input
-                            type='url'
-                            name='image2'
-                            id='image2'
-                            placeholder='http://placekitten.com/200/300'
-                            required
-                            onChange={this.handleImage2Change}
-                        />
+                                <Required />
+                            </label>
+                        </div>
+                        <div class="col-75">
+                            <input
+                                type='url'
+                                name='image2'
+                                className='In-st'
+                                id='image2'
+                                placeholder='http://placekitten.com/200/300'
+                                required
+                                onChange={this.handleImage2Change}
+                            />
+                        </div>
                     </div>
-                    <div className='AddTrade_buttons'>
-                        <Button type='button' onClick={this.handleClickCancel}>
+                    <div className='row'>
+                        <Button type='button' id='sub' onClick={this.handleClickCancel}>
                             Cancel
                         </Button>
                         {' '}
-                        <Button type='submit' onClick={this.handleSubmit}>
+                        <Button type='submit' id='sub' onClick={this.handleSubmit}>
                             Post Trade
                         </Button>
                     </div>
