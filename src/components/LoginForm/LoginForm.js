@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Input, Section } from '../Utils/Utils'
-import TokenService from '../../services/token-service'
+// import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 
 
@@ -23,7 +23,7 @@ export default class LoginForm extends Component {
             .then(res => {
                 user_name.value = ''
                 password.value = ''
-                TokenService.saveAuthToken(res.authToken)
+                // TokenService.saveAuthToken(res.authToken)
                 this.props.onLoginSuccess()
             })
             .catch(res => {
@@ -45,7 +45,7 @@ export default class LoginForm extends Component {
                         <Input
                             required
                             name='user_name'
-                            id='Inn'>
+                            className='Inn'>
                         </Input>
                     </div>
                     <div className='row'>
@@ -54,7 +54,7 @@ export default class LoginForm extends Component {
                             required
                             name='password'
                             type='password'
-                            id='Inn'>
+                            className='Inn'>
                         </Input>
                     </div>
                     <div className='row'>

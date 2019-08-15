@@ -26,8 +26,21 @@ const TradeApiService = {
                     : res.json()
             )
     },
-
-    //UpdateTrade, PostTrade
+    postTrade(trade) {
+        return fetch(`${config.API_ENDPOINT}/trades`, {
+            method: 'POST',
+            body: JSON.stringify(trade),
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(error => Promise.reject(error))
+                    : res.json()
+            )
+    },
 }
 
 export default TradeApiService

@@ -17,7 +17,7 @@ export default class AcceptedTrades extends Component {
         const acceptedTrades = []
 
         tradeList.forEach(trade => {
-            if (trade.user_id === parsedJwtPayload.user_id && trade.active === false) {
+            if (trade.claim_user === parsedJwtPayload.user_id && trade.active === false) {
                 acceptedTrades.push(trade)
             }
         })

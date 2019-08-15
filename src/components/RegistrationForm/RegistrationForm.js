@@ -13,7 +13,6 @@ export default class RegistrationForm extends Component {
     handleSubmit = ev => {
         ev.preventDefault()
         const { full_name, user_name, password } = ev.target
-        console.log(ev.target)
 
         this.setState({ error: null })
         AuthApiService.postUser({
@@ -49,7 +48,7 @@ export default class RegistrationForm extends Component {
                             name='full_name'
                             type='text'
                             required
-                            id='Inn'>
+                            className='Inn'>
                         </Input>
                     </div>
                     <div className='row'>
@@ -60,7 +59,7 @@ export default class RegistrationForm extends Component {
                             name='user_name'
                             type='text'
                             required
-                            id='Inn'>
+                            className='Inn'>
                         </Input>
                     </div>
                     <div className='row'>
@@ -71,7 +70,7 @@ export default class RegistrationForm extends Component {
                             name='password'
                             type='password'
                             required
-                            id='Inn'>
+                            className='Inn'>
                         </Input>
                     </div>
                     <div className='row'>

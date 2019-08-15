@@ -4,6 +4,7 @@ import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import TradeContext from '../../contexts/TradeContext';
+import IdleService from '../../services/idle-service'
 import './header.css'
 
 class Header extends Component {
@@ -14,6 +15,9 @@ class Header extends Component {
         const { logOutUser } = this.context
         logOutUser()
         TokenService.clearAuthToken()
+        /* when logging out, clear the callbacks to the refresh api and idle auto logout */
+        TokenService.clearCallbackBeforeExpiry()
+        IdleService.unRegisterIdleResets()
     }
 
     renderLogoutLink() {
@@ -28,7 +32,7 @@ class Header extends Component {
                 </Link>
                 {' '}
                 <Link to='/accepted' id='link'>
-                    Completed Trades
+                    Accepted Trades
                 </Link>
                 {' '}
                 <Link

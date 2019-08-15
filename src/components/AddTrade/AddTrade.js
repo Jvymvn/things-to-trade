@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import config from '../../config';
-import { Section, Input, Button } from '../../components/Utils/Utils';
+import { Section, Button } from '../../components/Utils/Utils';
 import TradeListContext from '../../contexts/TradeListContext'
 import TokenService from '../../services/token-service';
+import TradeApiService from '../../services/trade-api-service'
 import './AddTrade.css'
 
 const Required = () => (
@@ -33,20 +33,7 @@ export default class AddTrade extends Component {
 
         this.setState({ error: null })
 
-        fetch(`${config.API_ENDPOINT}/trades`, {
-            method: 'POST',
-            body: JSON.stringify(trade),
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(error => Promise.reject(error))
-                }
-                return res.json()
-            })
+        TradeApiService.postTrade(trade)
             .then(data => {
                 this.setState({
                     title: '',
@@ -101,7 +88,7 @@ export default class AddTrade extends Component {
                                 <Required />
                             </label>
                         </div>
-                        <div class="col-75">
+                        <div className="col-75">
                             <input
                                 type='text'
                                 name='title'
@@ -121,7 +108,7 @@ export default class AddTrade extends Component {
                                 <Required />
                             </label>
                         </div>
-                        <div class="col-75">
+                        <div className="col-75">
                             <input
                                 type='url'
                                 name='image1'
@@ -141,7 +128,7 @@ export default class AddTrade extends Component {
                                 <Required />
                             </label>
                         </div>
-                        <div class="col-75">
+                        <div className="col-75">
                             <input
                                 type='url'
                                 name='image2'

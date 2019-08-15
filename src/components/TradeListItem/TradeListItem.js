@@ -4,7 +4,6 @@ import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import config from '../../config';
 import TradeListContext from '../../contexts/TradeListContext';
 import TokenService from '../../services/token-service';
-import { faVoteYea } from '@fortawesome/free-solid-svg-icons';
 import './TradeListItem.css'
 
 
