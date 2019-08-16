@@ -1,9 +1,4 @@
-
-body{
-   
-}
-
-.TradeList_list{
+.TradeList_list {
   position: absolute;
   top: 190px;
   bottom: 20px;
@@ -15,5 +10,4 @@ body{
   border: 2px solid #ccc;
   font-size: 16px;
   font-family: Arial, sans-serif;
-  border-radius: 10px;
-}
+  border-radius: 10px; }

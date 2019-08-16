@@ -68,7 +68,7 @@ const AuthApiService = {
                   - we'll catch the error here as this refresh is happening behind the scenes
                 */
                 TokenService.saveAuthToken(res.authToken)
-                this.props.history.push('/trades')
+                // this.props.history.push('/trades')
                 TokenService.queueCallbackBeforeExpiry(() => {
                     AuthApiService.postRefreshToken()
                 })

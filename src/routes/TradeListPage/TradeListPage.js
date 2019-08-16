@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
 import TradeListItem from '../../components/TradeListItem/TradeListItem'
-import './TradeListPage.css'
+import '../../css/main.css'
 
 export default class TradeListPage extends Component {
     static defaultProps = {
