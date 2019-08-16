@@ -22,9 +22,7 @@ export default class TradeItem extends Component {
 
 
     updateTradeActive = (trade) => {
-        alert('Trade Accepted!')
-        let parsedJwtToken = this.parseJwt(localStorage.getItem('trade-client-auth-token'))
-
+        let parsedJwtToken = this.parseJwt(localStorage.getItem(config.JWT_TOKEN))
 
         fetch(`${config.API_ENDPOINT}/trades/${trade.id}`, {
             method: 'PATCH',

@@ -7,14 +7,14 @@ const _TEN_SECONDS_IN_MS = 10000
 
 const TokenService = {
     saveAuthToken(token) {
-        window.localStorage.setItem(config.TOKEN_KEY, token)
+        window.localStorage.setItem(config.JWT_TOKEN, token)
     },
     getAuthToken() {
-        return window.localStorage.getItem(config.TOKEN_KEY)
+        return window.localStorage.getItem(config.JWT_TOKEN)
     },
     clearAuthToken() {
         console.info('clearing the auth token')
-        window.localStorage.removeItem(config.TOKEN_KEY)
+        window.localStorage.removeItem(config.JWT_TOKEN)
     },
     hasAuthToken() {
         return !!TokenService.getAuthToken()

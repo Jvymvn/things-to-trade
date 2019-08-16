@@ -1,4 +1,4 @@
 export default {
-    API_ENDPOINT: 'http://localhost:8000/api',
-    TOKEN_KEY: 'trade-client-auth-token',
+    API_ENDPOINT: `https://mysterious-tor-25984.herokuapp.com/api`,
+    JWT_TOKEN: process.env.REACT_APP_JWT_TOKEN || 'JWT_TOKEN',
 }

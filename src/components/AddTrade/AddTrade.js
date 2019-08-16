@@ -3,6 +3,7 @@ import { Section, Button } from '../../components/Utils/Utils';
 import TradeListContext from '../../contexts/TradeListContext'
 import TokenService from '../../services/token-service';
 import TradeApiService from '../../services/trade-api-service'
+import config from '../../config';
 import './AddTrade.css'
 
 const Required = () => (
@@ -22,7 +23,7 @@ export default class AddTrade extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem('trade-client-auth-token'))
+        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN))
 
         const trade = {
             title: this.state.title,

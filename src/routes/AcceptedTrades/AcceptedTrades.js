@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
 import AcceptedTradeItem from '../../components/AcceptedTradeItem/AcceptedTradeItem'
 import TokenService from '../../services/token-service'
+import config from '../../config'
 
 
 export default class AcceptedTrades extends Component {
@@ -13,7 +14,7 @@ export default class AcceptedTrades extends Component {
 
     render() {
         const { tradeList } = this.context
-        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem('trade-client-auth-token'))
+        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN))
         const acceptedTrades = []
 
         tradeList.forEach(trade => {
