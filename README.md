@@ -35,3 +35,6 @@ New features will added to enhance your trading experience.
 ![Imgur](https://i.imgur.com/QYsEFDv.png)
 ![Imgur](https://i.imgur.com/aoO5S0A.png)
 ![Imgur](https://i.imgur.com/ccsNAHx.png)
+
+
+*Disclaimer: The app will be actively updated to add features.
