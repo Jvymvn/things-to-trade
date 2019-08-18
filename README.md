@@ -30,7 +30,7 @@ New features will be added to enhance your trading experience.
 ### Screenshots
 
 ![Imgur](https://i.imgur.com/OM8h3Ik.png)
-![Imgur](https://i.imgur.com/zPbgj00.png)
+![Imgur](https://i.imgur.com/Nl8F05N.png)
 ![Imgur](https://i.imgur.com/YtKhltA.png)
 ![Imgur](https://i.imgur.com/QYsEFDv.png)
 ![Imgur](https://i.imgur.com/aoO5S0A.png)
