@@ -24,7 +24,7 @@ Things 2 Trade is an easy-to-use trading application for trading things.
 ### Future Updates
 
 The trading app is currently a prototype. Many updates and changes are to come, your trades will not be lost with updates.
-New features will added to enhance your trading experience.
+New features will be added to enhance your trading experience.
 
 
 ### Screenshots
