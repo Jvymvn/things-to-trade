@@ -4,8 +4,7 @@ import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import config from '../../config';
 import TradeListContext from '../../contexts/TradeListContext';
 import TokenService from '../../services/token-service';
-import './TradeListItem.css'
-
+import '../../css/main.css'
 
 export default class TradeItem extends Component {
     static contextType = TradeListContext;
@@ -59,7 +58,6 @@ export default class TradeItem extends Component {
                             </div>
                             <div className='TradeItem_middle'>
                                 <FontAwesomeIcon className='gold' id='middle_icon' icon={faExchangeAlt} /><br />
-                                {/* <FontAwesomeIcon className='green' icon={faVoteYea} /> */}
                                 <button type='Button' id='Accept' onClick={() => this.updateTradeActive(this.props)}><span>Accept</span></button>
                             </div>
                             <div className='TradeItem_get'>

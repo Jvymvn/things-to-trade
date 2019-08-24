@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
 import TradeListItem from '../../components/TradeListItem/TradeListItem'
 import '../../css/main.css'
+import TokenService from '../../services/token-service'
 
 export default class TradeListPage extends Component {
     static defaultProps = {
@@ -18,11 +19,16 @@ export default class TradeListPage extends Component {
         const { tradeList } = this.context
         //----------------------
         const activeTrades = [];
-        tradeList.forEach(trade => {
-            if (trade.active === true) {
-                activeTrades.push(trade)
-            }
-        })
+
+        if (TokenService.hasAuthToken() === false) {
+            return <p>Must login to see trades</p>
+        } else {
+            tradeList.forEach(trade => {
+                if (trade.active === true) {
+                    activeTrades.push(trade)
+                }
+            })
+        }
         //----------------------
         return (
             <section className='TradeList'>

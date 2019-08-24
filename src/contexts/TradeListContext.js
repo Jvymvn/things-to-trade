@@ -67,7 +67,6 @@ export class TradeListProvider extends Component {
         })
             .then(res => {
                 if (!res.ok) {
-                    alert('Must Log In')
                     throw new Error(res.status)
                 }
                 return res.json()

@@ -15,6 +15,11 @@ export default class RegistrationForm extends Component {
         const { full_name, user_name, password } = ev.target
 
         this.setState({ error: null })
+        const passwordError = AuthApiService.validatePassword(password.value)
+
+        if (passwordError)
+            return this.setState({ error: passwordError })
+
         AuthApiService.postUser({
             user_name: user_name.value,
             password: password.value,
