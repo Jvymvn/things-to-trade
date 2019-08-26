@@ -15,6 +15,8 @@ const TradeContext = React.createContext({
     setTrade: () => { },
     clearTrade: () => { },
     updateTrade: () => { },
+    logInUser: () => { },
+    logOutUser: () => { },
 })
 
 export default TradeContext

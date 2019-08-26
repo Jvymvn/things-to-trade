@@ -13,14 +13,10 @@ const TokenService = {
         return window.localStorage.getItem(config.JWT_TOKEN)
     },
     clearAuthToken() {
-        console.info('clearing the auth token')
         window.localStorage.removeItem(config.JWT_TOKEN)
     },
     hasAuthToken() {
         return !!TokenService.getAuthToken()
-    },
-    makeBasicAuthToken(userName, password) {
-        return window.btoa(`${userName}:${password}`)
     },
     parseJwt(jwt) {
         return jwtDecode(jwt)
@@ -62,4 +58,4 @@ const TokenService = {
     // }
 }
 
-export default TokenService
+export default TokenService;

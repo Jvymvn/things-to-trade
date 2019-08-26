@@ -14,11 +14,14 @@ import AuthApiService from '../../services/auth-api-service'
 import IdleService from '../../services/idle-service'
 import PrivateRoute from '../Utils/PrivateRoute'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import TradeContext from '../../contexts/TradeContext'
 
 class App extends Component {
   state = {
     hasError: false,
   };
+
+  static contextType = TradeContext;
 
   componentDidMount() {
     /*
@@ -42,7 +45,7 @@ class App extends Component {
         and queue a timeout just before the token expires
       */
       TokenService.queueCallbackBeforeExpiry(() => {
-        /* the timoue will call this callback just before the token expires */
+        /* the timout will call this callback just before the token expires */
         AuthApiService.postRefreshToken()
       })
     }
@@ -71,7 +74,8 @@ class App extends Component {
       react won't know the token has been removed from local storage,
       so we need to tell React to rerender
     */
-    this.forceUpdate()
+    this.forceUpdate();
+    this.context.logOutUser();
   }
 
   render() {
