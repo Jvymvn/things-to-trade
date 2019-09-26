@@ -15,11 +15,13 @@ Things 2 Trade is an easy-to-use trading application for trading things.
 
 ## Technology Stacks
 
-* [React](https://facebook.github.io/create-react-app)
+* [React](https://reactjs.org)
 * [JWT Decode](https://jwt.io/)
-* [Sass](https://www.npmjs.com/package/node-sass?activeTab=versions)
 * [Express](https://expressjs.com/)
-* [node.js](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/)
+* [node-sass](https://www.npmjs.com/package/node-sass)
+* [PostgreSQL](https://www.postgresql.org)
+* [Javascript](https://www.javascript.com)
 
 ### Future Updates
 
