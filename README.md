@@ -35,7 +35,7 @@ New features will be added to enhance your trading experience.
 ![Imgur](https://i.imgur.com/gb1D7q3.png)<br/>
 
 <p align="center">
-Mobile Views
+<h2>Mobile Views</h2>
 </p>
 
 <p align="center">
