@@ -34,8 +34,14 @@ New features will be added to enhance your trading experience.
 ![Imgur](https://i.imgur.com/7pGafCK.png)
 ![Imgur](https://i.imgur.com/gb1D7q3.png)<br/>
 ![Imgur](https://i.imgur.com/9goKC69.png)<br/>
-![Imgur](https://i.imgur.com/l3CYTXX.png)<br/>
-![Imgur](https://i.imgur.com/380KpRt.png)<br/>
+<p align="center">
+  <img src="https://i.imgur.com/9goKC69.png">
+</p>
+
+<p align="center">
+  <img src="https://i.imgur.com/l3CYTXX.png">
+</p>
+
 <p align="center">
   <img src="https://i.imgur.com/380KpRt.png">
 </p>
