@@ -1,11 +1,4 @@
-img{
-    height: 300px;
-    width: 200px;
-}
 
-.TradeItem_container{
-    display: flex;
-}
 
 .TradeItem_give{
     flex: 1;
@@ -15,10 +8,6 @@ img{
     flex: 1;
 }
 
-.TradeItem_middle{
-    margin-top: auto;
-    margin-bottom: auto;
-}
 
 #middle_icon{
     font-size: 200px;
@@ -88,5 +77,5 @@ img{
 
 .TradeItem_title{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 2rem;
 }
+

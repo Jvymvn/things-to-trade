@@ -81,9 +81,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className='App_header'>
-          <Header />
-        </header>
+        <Header />
         <main className='App_main'>
           {this.state.hasError && <p className='red'>There was an error!</p>}
           <Switch>

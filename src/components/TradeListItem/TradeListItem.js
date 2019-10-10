@@ -6,6 +6,11 @@ import TradeListContext from '../../contexts/TradeListContext';
 import TokenService from '../../services/token-service';
 import '../../css/main.css'
 
+const imgStyle = {
+    width: '100%',
+    height: 'auto',
+}
+
 export default class TradeItem extends Component {
     static contextType = TradeListContext;
 
@@ -50,11 +55,11 @@ export default class TradeItem extends Component {
             <TradeListContext.Consumer>
                 {(context) => (
                     <li className='TradeItem'>
-                        <h3 className='TradeItem_title'>{this.props.title}</h3>
+                        <h1 className='TradeItem_title'>{this.props.title}</h1>
                         <div className='TradeItem_container'>
                             <div className="TradeItem_give">
                                 <h1>You Give:</h1>
-                                <div className='TradeItem_image_give'><img src={this.props.image1} alt='image1' /></div>
+                                <img src={this.props.image1} alt='image1' style={imgStyle} />
                             </div>
                             <div className='TradeItem_middle'>
                                 <FontAwesomeIcon className='gold' id='middle_icon' icon={faExchangeAlt} /><br />
@@ -62,7 +67,7 @@ export default class TradeItem extends Component {
                             </div>
                             <div className='TradeItem_get'>
                                 <h1>You Get:</h1>
-                                <div className='TradeItem_image_get'><img src={this.props.image2} alt='image2' /></div>
+                                <img src={this.props.image2} alt='image2' style={imgStyle} />
                             </div>
                         </div>
                     </li>
