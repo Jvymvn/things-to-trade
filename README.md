@@ -31,12 +31,11 @@ New features will be added to enhance your trading experience.
 
 ### Screenshots
 
-![Imgur](https://i.imgur.com/OM8h3Ik.png)
-![Imgur](https://i.imgur.com/XHbG6HB.png)
-![Imgur](https://i.imgur.com/YtKhltA.png)
-![Imgur](https://i.imgur.com/Nl8F05N.png)
-![Imgur](https://i.imgur.com/aoO5S0A.png)
-![Imgur](https://i.imgur.com/ccsNAHx.png)
-
+![Imgur](https://i.imgur.com/7pGafCK.png)
+![Imgur](https://i.imgur.com/gb1D7q3.png)
+![Imgur](https://i.imgur.com/jDro9Mf.png)
+![Imgur](https://i.imgur.com/l3CYTXX.png)
+![Imgur](https://i.imgur.com/380KpRt.png)
+![Imgur](https://i.imgur.com/9goKC69.png)
 
 *Disclaimer: The app will be actively updated to add features.
