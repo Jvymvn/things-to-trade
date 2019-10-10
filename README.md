@@ -29,14 +29,12 @@ The trading app is currently a prototype. Many updates and changes are to come, 
 New features will be added to enhance your trading experience.
 
 
-### Screenshots
+## Screenshots
 
 ![Imgur](https://i.imgur.com/7pGafCK.png)
 ![Imgur](https://i.imgur.com/gb1D7q3.png)<br/>
 
-<p align="center">
-<h2>Mobile Views</h2>
-</p>
+## Mobile Views
 
 <p align="center">
   <img src="https://i.imgur.com/9goKC69.png">
