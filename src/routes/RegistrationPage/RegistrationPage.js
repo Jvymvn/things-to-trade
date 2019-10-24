@@ -19,7 +19,7 @@ export default class RegistrationPage extends Component {
         return (
             <Section className='RegistrationPage'>
                 {/* Landing Message */}
-                <div id='landing_message'>
+                <div className='landing_message'>
                     <h1>WELCOME TO THINGS 2 TRADE!</h1>
                     <p> "TRADING EASY AS 1,2,3!" <br /><br />1. Post a trade to our list of active trades using our ADD-TRADE form.<br /><br />
                         Trades consist of a 'GIVE,' what you will give in the trade,<br /> and a 'GET,' what you will receive from the trade.

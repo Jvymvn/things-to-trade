@@ -36,7 +36,7 @@ export default class TradeItem extends Component {
                     return res.json().then(error => Promise.reject(error))
 
             })
-            .then(data => {
+            .then(() => {
                 this.context.updateTrade(trade.id, 'active', false)
             })
             .catch(error => {
