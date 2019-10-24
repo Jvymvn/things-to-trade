@@ -5,7 +5,7 @@ import TokenService from '../../services/token-service'
 import config from '../../config'
 
 
-export default class AcceptedTrades extends Component {
+export default class MyTrades extends Component {
     static contextType = TradeListContext;
 
     componentDidMount() {

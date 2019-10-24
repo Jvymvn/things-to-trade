@@ -1,79 +1,38 @@
-.gold {
-    color: goldenrod;
-}
-
-#Main_title{
-    font-size: 2.5rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.Header-log-in{
+ul.Nav{
     list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+    padding-left: 0;
+    margin-left: 0;
+    border-bottom: 3px solid rgb(204,204,204);
 }
 
-.Header-logged-in{
-    list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+.Nav li {
+    display: inline;
+    margin-right: -5px;
 }
 
-/* li:last-child {
-    border-right: none;
-} */
-
-.active{
-    background-color: goldenrod;
-}
-
-li a {
-    display: block;
+.Nav a {
+    width: 12em;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-/* #link{
-    text-decoration: none;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 50px/100px;
-    color: black;
-} */
-
-/* #link:hover{
-    text-decoration: underline;
-    box-shadow: 2px 2px 5px goldenrod;
-} */
-
-/* #link2{
-    text-decoration: none;
-}
-
-#link2:hover{
-    text-decoration: underline;
-    cursor: pointer;
-} */
-
-.Already_reg{
-    margin-top: 10px;
-}
-
-
-@media only screen and (min-width: 485px) {
-   li{
     display: inline-block;
-    margin-left: 1px;
-    margin-right: 1px;
-   }
-  }
+    border: 3px solid rgb(204,204,204);
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+    padding: 5px 15px 5px 15px;
+    text-decoration: none;
+    background-color: rgb(95,95,95);
+    background-image: -webkit-linear-gradient(rgb(175,175,175), rgb(95,95,95));
+    background-image: -moz-linear-gradient(rgb(175,175,175), rgb(95,95,95));
+    background-image: -o-linear-gradient(rgb(175,175,175), rgb(95,95,95));
+    background-image: linear-gradient(rgb(175,175,175), rgb(95,95,95));
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.Nav a:hover{
+    background-color: rgb(184, 167, 23);
+    background-image: -webkit-linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
+    background-image: -moz-linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
+    background-image: -o-linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
+    background-image: linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
+}

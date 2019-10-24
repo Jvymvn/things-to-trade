@@ -4,7 +4,6 @@ import TradeListContext from '../../contexts/TradeListContext'
 import TokenService from '../../services/token-service';
 import TradeApiService from '../../services/trade-api-service'
 import config from '../../config';
-import './AddTrade.css'
 
 const Required = () => (
     <span className='AddTrade_required'>*</span>

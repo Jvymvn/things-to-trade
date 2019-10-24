@@ -12,7 +12,7 @@ export default class AcceptedItem extends Component {
             <TradeListContext.Consumer>
                 {(context) => (
                     <li className='TradeItem'>
-                        <h3 className='TradeItem_title' id="gold">{this.props.title}</h3>
+                        <h3 className='TradeItem_title' className="gold">{this.props.title}</h3>
                         <div className='TradeItem_container'>
                             <div className="TradeItem_give">
                                 <h1>You Give:</h1>

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import TradeContext from '../../contexts/TradeContext';
 import IdleService from '../../services/idle-service'
-import './header.css'
 
-
+import './Header.css'
 
 class Header extends Component {
-    static contextType = TradeContext
+
+    static contextType = TradeContext;
 
 
     handleLogoutClick = () => {
@@ -22,49 +22,23 @@ class Header extends Component {
         IdleService.unRegisterIdleResets()
     }
 
-    renderLogoutLink() {
+    renderLogoutLinks() {
         return (
-            <div>
-                <div className="Header_title">
-                    <h1 id='Main_title'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
-                </div>
-                <ul className="Header-logged-in">
-                    <li><NavLink to='/add-trade' activeClassName="active">
-                        Add Trade
-                </NavLink></li>
-                    <li><NavLink to='/trades' activeClassName="active">
-                        Active Trades
-                </NavLink></li>
-                    <li><NavLink to='/accepted' activeClassName="active">
-                        Accepted Trades
-                </NavLink></li>
-                    <li><NavLink
-                        onClick={this.handleLogoutClick}
-                        exact to='/'>
-                        Logout
-                </NavLink></li>
+                <ul className="Nav">
+                    <li><NavLink to='/add-trade' activeClassName="active">Add Trade</NavLink></li>
+                    <li><NavLink to='/trades' activeClassName="active">Trades</NavLink></li>
+                    <li><NavLink to='/my-trades' activeClassName="active">My Trades</NavLink></li>
+                    <li><NavLink onClick={this.handleLogoutClick} exact to='/'>Logout</NavLink></li>
                 </ul>
-            </div>
         )
     }
 
-    renderLoginLink() {
+    renderLoginLinks() {
         return (
-            <div>
-                <div className="Header_title">
-                    <h1 id='Main_title'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
-                </div>
-                <ul className='Header-log-in'>
-                    <li><NavLink
-                        to='/login'>
-                        Log in
-                </NavLink></li>
-                    <li><NavLink
-                        exact to='/'>
-                        Register
-                </NavLink></li>
+                <ul className='Nav'>
+                    <li><NavLink to='/login'>Log in</NavLink></li>
+                    <li><NavLink exact to='/'>Register</NavLink></li>
                 </ul>
-            </div>
         )
     }
 
@@ -81,10 +55,11 @@ class Header extends Component {
         const { loggedIn } = this.context
         return (
             <>
-                <nav className="Header">
+                <h1 className='site-title'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
+                <nav>
                     {loggedIn === true
-                        ? this.renderLogoutLink()
-                        : this.renderLoginLink()}
+                        ? this.renderLogoutLinks()
+                        : this.renderLoginLinks()}
                 </nav>
             </>
         )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
 import TradeListItem from '../../components/TradeListItem/TradeListItem'
-import '../../css/main.css'
 import TokenService from '../../services/token-service'
 
 export default class TradeListPage extends Component {

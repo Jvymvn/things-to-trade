@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
+
+//------------------- Components
 import Header from '../Header/header'
-import TradeListPage from '../../routes/TradeListPage/TradeListPage'
-import LoginPage from '../../routes/LoginPage/LoginPage'
-import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
-import AcceptedTrades from '../../routes/AcceptedTrades/AcceptedTrades'
-import AddTrade from '../AddTrade/AddTrade'
-//-----
+//--------------------
+
+//---------------------- Services
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import IdleService from '../../services/idle-service'
 import PrivateRoute from '../Utils/PrivateRoute'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import TradeContext from '../../contexts/TradeContext'
+//--------------------------
+
+//====================== Routes
+import TradeListPage from '../../routes/TradeListPage/TradeListPage'
+import AddTrade from '../AddTrade/AddTrade'
+import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
+import MyTrades from '../../routes/MyTrades/MyTrades'
+import LoginPage from '../../routes/LoginPage/LoginPage'
+
+//----------------------------
 
 class App extends Component {
   state = {
@@ -87,8 +96,8 @@ class App extends Component {
           <Switch>
             <PublicOnlyRoute exact path={'/'} component={RegistrationPage} />
             <PublicOnlyRoute path={'/login'} component={LoginPage} />
-            <Route path={'/trades'} component={TradeListPage} />
-            <Route path={'/accepted'} component={AcceptedTrades} />
+            <PrivateRoute path={'/trades'} component={TradeListPage} />
+            <PrivateRoute path={'/my-trades'} component={MyTrades} />
             <PrivateRoute path={'/add-trade'} component={AddTrade} />
             <Route component={NotFoundPage} />
           </Switch>
