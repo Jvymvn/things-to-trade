@@ -14,12 +14,12 @@ class Header extends Component {
 
 
     handleLogoutClick = () => {
-        const { logOutUser } = this.context
-        logOutUser()
-        TokenService.clearAuthToken()
+        const { logOutUser } = this.context;
+        logOutUser();
+        TokenService.clearAuthToken();
         /* when logging out, clear the callbacks to the refresh api and idle auto logout */
-        TokenService.clearCallbackBeforeExpiry()
-        IdleService.unRegisterIdleResets()
+        TokenService.clearCallbackBeforeExpiry();
+        IdleService.unRegisterIdleResets();
     }
 
     renderLogoutLinks() {
@@ -36,8 +36,8 @@ class Header extends Component {
     renderLoginLinks() {
         return (
                 <ul className='Nav'>
-                    <li><NavLink to='/login'>Log in</NavLink></li>
-                    <li><NavLink exact to='/'>Register</NavLink></li>
+                    <li><NavLink to='/login' activeClassName="active">Log in</NavLink></li>
+                    <li><NavLink exact to='/' activeClassName="active">Register</NavLink></li>
                 </ul>
         )
     }
@@ -45,7 +45,7 @@ class Header extends Component {
     componentDidMount() {
         const { logInUser } = this.context
         if (TokenService.hasAuthToken()) {
-            logInUser()
+            logInUser();
         }
     }
 
@@ -54,14 +54,14 @@ class Header extends Component {
     render() {
         const { loggedIn } = this.context
         return (
-            <>
+            <div className="Navigation-bar">
                 <h1 className='site-title'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
                 <nav>
                     {loggedIn === true
                         ? this.renderLogoutLinks()
                         : this.renderLoginLinks()}
                 </nav>
-            </>
+            </div>
         )
     }
 }

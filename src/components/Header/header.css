@@ -1,38 +1,38 @@
-ul.Nav{
-    list-style-type: none;
-    padding-left: 0;
-    margin-left: 0;
-    border-bottom: 3px solid rgb(204,204,204);
+body{
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
-.Nav li {
-    display: inline;
-    margin-right: -5px;
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+.nav-area{
+    margin: -30px auto;
+    width: 950px;
+}
+#menu li{
+    list-style: none;
+}
+@media only screen and (max-width: 774px){
+    ul.Nav{
+        margin: 0 auto;
+        border-bottom: none;
+    }
+
+    ul.Nav li{
+        display: block;
+    }
+
+    .Nav a{
+        border-radius: 0;
+    }
+
+    .Nav li:last-child{
+        border-bottom: 3px solid rgb(204,204,204);
+    }
 }
 
-.Nav a {
-    width: 12em;
-    color: white;
-    display: inline-block;
-    border: 3px solid rgb(204,204,204);
-    border-radius: 5px 5px 0 0;
-    border-bottom: none;
-    padding: 5px 15px 5px 15px;
-    text-decoration: none;
-    background-color: rgb(95,95,95);
-    background-image: -webkit-linear-gradient(rgb(175,175,175), rgb(95,95,95));
-    background-image: -moz-linear-gradient(rgb(175,175,175), rgb(95,95,95));
-    background-image: -o-linear-gradient(rgb(175,175,175), rgb(95,95,95));
-    background-image: linear-gradient(rgb(175,175,175), rgb(95,95,95));
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    margin-right: 6px;
-}
-
-.Nav a:hover{
-    background-color: rgb(184, 167, 23);
-    background-image: -webkit-linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
-    background-image: -moz-linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
-    background-image: -o-linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
-    background-image: linear-gradient(rgb(184, 167, 23), rgb(95,95,95));
-}
