@@ -28,9 +28,9 @@ export default class AddTrade extends Component {
             image1: this.state.image1,
             image2: this.state.image2,
             user_id: parsedJwtPayload.user_id
-        }
+        };
 
-        this.setState({ error: null })
+        this.setState({ error: null });
 
         TradeApiService.postTrade(trade)
             .then(data => {
@@ -45,23 +45,23 @@ export default class AddTrade extends Component {
             .catch(error => {
                 console.error(error)
                 this.setState({ error })
-            })
-    }
+            });
+    };
 
     handleTitleChange = (ev) => {
         // console.log(ev.target.value)
         this.setState({ title: ev.target.value })
-    }
+    };
 
     handleImage1Change = (ev) => {
         // console.log(ev.target.value)
         this.setState({ image1: ev.target.value })
-    }
+    };
 
     handleImage2Change = (ev) => {
         // console.log(ev.target.value)
         this.setState({ image2: ev.target.value })
-    }
+    };
 
     handleClickCancel = () => {
         this.props.history.push('/trades')
