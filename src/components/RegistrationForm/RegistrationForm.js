@@ -39,20 +39,21 @@ export default class RegistrationForm extends Component {
     render() {
         const { error } = this.state;
         const style = {
-            'text-align': 'center',
+            'textAlign': 'center',
             error: {
                 color: 'red',
-                'text-align': 'center'
+                'textAlign': 'center'
             }
         };
         return (
             <>
                 <h2 style={style}>Register</h2>
-                <div role='alert'>
+                <div role='alert' style={style.error}>
                     {error && <p>{error}</p>}
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     <table border="3" align="center">
+                        <tbody>
                     <tr>
                         <td><label>
                             Full name <Required />
@@ -101,6 +102,7 @@ export default class RegistrationForm extends Component {
                         <Link to='/login' id='link2'>Login</Link>
                         </td>
                         </tr>
+                        </tbody>
                     </table>
                 </form>
                 </>

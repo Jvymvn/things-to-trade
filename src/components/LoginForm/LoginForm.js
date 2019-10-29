@@ -32,14 +32,14 @@ export default class LoginForm extends Component {
     }
 
     render() {
-        const { error } = this.state
+        const { error } = this.state;
         const style = {
-            'text-align': 'center',
+            'textAlign': 'center',
             error: {
                 color: 'red',
-                'text-align': 'center'
+                'textAlign': 'center'
             }
-        }
+        };
         return (
             <>
                 <h2 style={style}>Log In</h2>
@@ -48,6 +48,7 @@ export default class LoginForm extends Component {
                 </div>
                 <form onSubmit={this.handleSubmitJwtAuth}>
                     <table border="3" align="center">
+                        <tbody>
                         <tr>
                         <td><label>UserName</label></td>
                         <td>
@@ -71,44 +72,10 @@ export default class LoginForm extends Component {
                             Login
                         </Button></td>
                         </tr>
+                        </tbody>
                     </table>
                 </form>
                 </>
         )
     }
 }
-
-
-/**
- * 
- * <Section className='container'>
-                <h2>Log In</h2>
-                <form onSubmit={this.handleSubmitJwtAuth}>
-                    <div role='alert'>
-                        {error && <p className='red'>{error}</p>}
-                    </div>
-                    <div className='row'>
-                        <label htmlFor='LoginForm__user_name'>User name</label>
-                        <Input
-                            required
-                            name='user_name'
-                            className='Inn'>
-                        </Input>
-                    </div>
-                    <div className='row'>
-                        <label htmlFor='LoginForm__password'>Password</label>
-                        <Input
-                            required
-                            name='password'
-                            type='password'
-                            className='Inn'>
-                        </Input>
-                    </div>
-                    <div className='row'>
-                        <Button type='submit' id='sub'>
-                            Login
-                </Button>
-                    </div>
-                </form>
-            </Section>
- */

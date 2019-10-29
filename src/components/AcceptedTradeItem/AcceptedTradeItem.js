@@ -14,8 +14,6 @@ export default class AcceptedItem extends Component {
     render() {
         let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN));
         return (
-            <TradeListContext.Consumer>
-                {(context) => (
                     <li className='TradeItem'>
                         <h3 className='TradeItem_title' className="gold">{this.props.title}</h3>
                         <div className='TradeItem_container'>
@@ -32,8 +30,6 @@ export default class AcceptedItem extends Component {
                             </div>
                         </div>
                     </li>
-                )}
-            </TradeListContext.Consumer>
         )
     }
 }

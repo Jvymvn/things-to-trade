@@ -44,7 +44,7 @@ export default class AddTrade extends Component {
             })
             .catch(error => {
                 console.error(error)
-                this.setState({ error })
+                this.setState(error)
             });
     };
 
@@ -70,19 +70,24 @@ export default class AddTrade extends Component {
     render() {
         const { error } = this.state;
         const style = {
-            'text-align': 'center',
+            'textAlign': 'center',
+            error: {
+                color: 'red',
+                'textAlign': 'center'
+            }
         }
         return(
             <>
             <h2 style={style}>Create a trade post</h2>
-            <div role='alert'>
-                {error && <p>{error.message}</p>}
+            <div role='alert' style={style.error}>
+                    {error && <p>{error}</p>}
             </div>
             <form>
             <table border="3" align="center">
+                <tbody>
                 <tr>
                     <td><label>
-                                Title
+                                Trade Post Title:
                             {' '}
                                 <Required />
                             </label></td>
@@ -97,7 +102,7 @@ export default class AddTrade extends Component {
                 </tr>
                 <tr>
                     <td><label>
-                                You Give:
+                                You Give Image:
                             {' '}
                                 <Required />
                             </label></td>
@@ -112,7 +117,7 @@ export default class AddTrade extends Component {
                 </tr>
                 <tr>
                     <td><label htmlFor='image2'>
-                                You Get:
+                                You Get Image:
                             {' '}
                                 <Required />
                             </label></td>
@@ -134,6 +139,7 @@ export default class AddTrade extends Component {
                             Post Trade
                         </Button></td>
                 </tr>
+                </tbody>
             </table>
             </form>
             </>

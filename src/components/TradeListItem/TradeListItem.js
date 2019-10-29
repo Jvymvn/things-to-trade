@@ -51,14 +51,12 @@ export default class TradeItem extends Component {
 
     render() {
         return (
-            <TradeListContext.Consumer>
-                {(context) => (
                     <li className='TradeItem'>
                         <h1 className='TradeItem_title'>{this.props.title}</h1>
                         <div className='TradeItem_container'>
                             <div className="TradeItem_give">
                                 <h1>You Give:</h1>
-                                <img src={this.props.image1} alt='image1' style={imgStyle} />
+                                <img src={this.props.image1} alt='image1' />
                             </div>
                             <div className='TradeItem_middle'>
                                 <FontAwesomeIcon className='gold' id='middle_icon' icon={faExchangeAlt} /><br />
@@ -66,12 +64,10 @@ export default class TradeItem extends Component {
                             </div>
                             <div className='TradeItem_get'>
                                 <h1>You Get:</h1>
-                                <img src={this.props.image2} alt='image2' style={imgStyle} />
+                                <img src={this.props.image2} alt='image2' />
                             </div>
                         </div>
                     </li>
-                )}
-            </TradeListContext.Consumer>
         )
     }
 }
