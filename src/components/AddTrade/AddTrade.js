@@ -138,5 +138,5 @@ export default class AddTrade extends Component {
             </form>
             </>
         );
-    }
+    };
 }
