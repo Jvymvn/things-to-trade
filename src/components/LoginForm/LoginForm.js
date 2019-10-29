@@ -33,8 +33,55 @@ export default class LoginForm extends Component {
 
     render() {
         const { error } = this.state
+        const style = {
+            'text-align': 'center',
+            error: {
+                color: 'red',
+                'text-align': 'center'
+            }
+        }
         return (
-            <Section className='container'>
+            <>
+                <h2 style={style}>Log In</h2>
+                <div role='alert' style={style.error}>
+                    {error && <p>{error}</p>}
+                </div>
+                <form onSubmit={this.handleSubmitJwtAuth}>
+                    <table border="3" align="center">
+                        <tr>
+                        <td><label>UserName</label></td>
+                        <td>
+                        <Input
+                            required
+                            name='user_name'/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td><label>Password</label></td>
+                        <td>
+                        <Input
+                            required
+                            name='password'
+                            type='password'/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td align="center" colSpan="2">
+                            <Button type='submit'>
+                            Login
+                        </Button></td>
+                        </tr>
+                    </table>
+                </form>
+                </>
+        )
+    }
+}
+
+
+/**
+ * 
+ * <Section className='container'>
                 <h2>Log In</h2>
                 <form onSubmit={this.handleSubmitJwtAuth}>
                     <div role='alert'>
@@ -64,6 +111,4 @@ export default class LoginForm extends Component {
                     </div>
                 </form>
             </Section>
-        )
-    }
-}
+ */

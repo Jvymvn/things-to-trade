@@ -3,36 +3,9 @@ body{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 100vh;
 }
 
-.wrapper{
-    width: 1000px;
-    margin: 0 auto;
-}
-.nav-area{
-    margin: -30px auto;
-    width: 950px;
-}
-#menu li{
-    list-style: none;
-}
 @media only screen and (max-width: 774px){
-    ul.Nav{
-        margin: 0 auto;
-        border-bottom: none;
-    }
-
-    ul.Nav li{
-        display: block;
-    }
-
-    .Nav a{
-        border-radius: 0;
-    }
-
-    .Nav li:last-child{
-        border-bottom: 3px solid rgb(204,204,204);
-    }
+    
 }
 

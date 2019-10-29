@@ -20,15 +20,14 @@ export default class AddTrade extends Component {
     };
 
     handleSubmit = e => {
-        e.preventDefault()
-
-        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN))
+        e.preventDefault();
+        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN));
 
         const trade = {
             title: this.state.title,
             image1: this.state.image1,
             image2: this.state.image2,
-            user_id: parsedJwtPayload.user_id,
+            user_id: parsedJwtPayload.user_id
         }
 
         this.setState({ error: null })
@@ -44,7 +43,7 @@ export default class AddTrade extends Component {
                 this.props.history.push('/trades')
             })
             .catch(error => {
-                console.log(error)
+                console.error(error)
                 this.setState({ error })
             })
     }
@@ -69,88 +68,75 @@ export default class AddTrade extends Component {
     };
 
     render() {
-        const { error } = this.state
-
-        return (
-            <Section className='container'>
-                <h2>Create a trade post</h2>
-                <form
-                    onSubmit={this.handleSubmit}
-                >
-                    <div className='AddTrade__error' role='alert'>
-                        {error && <p>{error.message}</p>}
-                    </div>
-                    <div className='row'>
-                        <div className="col-25">
-                            <label htmlFor='title'>
+        const { error } = this.state;
+        const style = {
+            'text-align': 'center',
+        }
+        return(
+            <>
+            <h2 style={style}>Create a trade post</h2>
+            <div role='alert'>
+                {error && <p>{error.message}</p>}
+            </div>
+            <form>
+            <table border="3" align="center">
+                <tr>
+                    <td><label>
                                 Title
                             {' '}
                                 <Required />
-                            </label>
-                        </div>
-                        <div className="col-75">
-                            <input
+                            </label></td>
+                    <td><input
                                 type='text'
                                 name='title'
-                                className='In-st'
                                 id='title'
-                                placeholder="I want to trade my Windows for a Mac"
+                                placeholder="Windows for a Mac"
                                 required
                                 onChange={this.handleTitleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-25">
-                            <label htmlFor='image1'>
+                            /></td>
+                </tr>
+                <tr>
+                    <td><label>
                                 You Give:
                             {' '}
                                 <Required />
-                            </label>
-                        </div>
-                        <div className="col-75">
-                            <input
+                            </label></td>
+                    <td><input
                                 type='url'
                                 name='image1'
-                                className='In-st'
                                 id='image1'
                                 placeholder='http://placekitten.com/200/300'
                                 required
                                 onChange={this.handleImage1Change}
-                            />
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-25">
-                            <label htmlFor='image2'>
+                            /></td>
+                </tr>
+                <tr>
+                    <td><label htmlFor='image2'>
                                 You Get:
                             {' '}
                                 <Required />
-                            </label>
-                        </div>
-                        <div className="col-75">
-                            <input
+                            </label></td>
+                    <td><input
                                 type='url'
                                 name='image2'
-                                className='In-st'
                                 id='image2'
                                 placeholder='http://placekitten.com/200/300'
                                 required
                                 onChange={this.handleImage2Change}
-                            />
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <Button type='button' id='sub' onClick={this.handleClickCancel}>
+                            /></td>
+                </tr>
+                <tr>
+                    <td align="center" colSpan="2"><Button type='button' onClick={this.handleClickCancel}>
                             Cancel
                         </Button>
                         {' '}
-                        <Button type='submit' id='sub' onClick={this.handleSubmit}>
+                        <Button type='submit' onClick={this.handleSubmit}>
                             Post Trade
-                        </Button>
-                    </div>
-                </form>
-            </Section>
+                        </Button></td>
+                </tr>
+            </table>
+            </form>
+            </>
         );
     }
 }

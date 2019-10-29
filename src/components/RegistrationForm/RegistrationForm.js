@@ -37,60 +37,73 @@ export default class RegistrationForm extends Component {
     }
 
     render() {
-        const { error } = this.state
+        const { error } = this.state;
+        const style = {
+            'text-align': 'center',
+            error: {
+                color: 'red',
+                'text-align': 'center'
+            }
+        };
         return (
-            <Section className='container'>
-                <h2 className='row'>Register</h2>
+            <>
+                <h2 style={style}>Register</h2>
+                <div role='alert'>
+                    {error && <p>{error}</p>}
+                </div>
                 <form onSubmit={this.handleSubmit}>
-                    <div role='alert'>
-                        {error && <p className='red'>{error}</p>}
-                    </div>
-                    <div className='row'>
-                        <label htmlFor='RegistrationForm__full_name'>
+                    <table border="3" align="center">
+                    <tr>
+                        <td><label>
                             Full name <Required />
-                        </label><br />
+                        </label></td>
+                        <td>
                         <Input
                             name='full_name'
                             type='text'
-                            required
-                            className='Inn'>
+                            required>
                         </Input>
-                    </div>
-                    <div className='row'>
-                        <label htmlFor='RegistrationForm__user_name'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>
                             User name <Required />
-                        </label><br />
+                        </label></td>
+                        <td>
                         <Input
                             name='user_name'
                             type='text'
-                            required
-                            className='Inn'>
+                            required>
                         </Input>
-                    </div>
-                    <div className='row'>
-                        <label htmlFor='RegistrationForm__password'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>
                             Password <Required />
-                        </label><br />
+                        </label></td>
+                        <td>
                         <Input
                             name='password'
                             type='password'
-                            required
-                            className='Inn'>
+                            required>
                         </Input>
-                    </div>
-                    <div className='row'>
-                        <Button type='submit' id='sub'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colSpan="2"><Button type='submit'>
                             Register
-                </Button>
-                    </div>
-                    <br />
-                    <div className='Already_reg'>
+                        </Button></td>
+                    </tr>
+                    <tr>
+                        <td align="center" colSpan="2">
                         <span>Already a member?</span>
                         <br />
                         <Link to='/login' id='link2'>Login</Link>
-                    </div>
+                        </td>
+                        </tr>
+                    </table>
                 </form>
-            </Section>
+                </>
         )
     }
 }
