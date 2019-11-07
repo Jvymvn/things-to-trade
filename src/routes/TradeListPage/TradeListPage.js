@@ -2,16 +2,22 @@ import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
 import TradeListItem from '../../components/TradeListItem/TradeListItem'
 import TokenService from '../../services/token-service'
+import TradeApiService from '../../services/trade-api-service';
+
 
 export default class TradeListPage extends Component {
     static defaultProps = {
         tradeList: []
     };
 
+    state = { error: null }
+
     static contextType = TradeListContext;
 
     componentDidMount() {
-        this.context.fetchTrades()
+        TradeApiService.getTrades()
+        .then(data => this.context.setTradeList(data))
+        .catch(res => this.setState({ error: res.error }))
     }
 
     render() {
@@ -31,7 +37,7 @@ export default class TradeListPage extends Component {
         //----------------------
         return (
             <section className='TradeList'>
-                <h2>Active Trades</h2>
+                <h2 className="sectionTitle">Active Trades</h2>
                 <ul className='TradeList_list' aria-live='polite'>
 
                     {activeTrades.map(trade =>

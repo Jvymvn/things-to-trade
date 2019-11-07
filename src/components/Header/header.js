@@ -6,7 +6,7 @@ import TokenService from '../../services/token-service';
 import TradeContext from '../../contexts/TradeContext';
 import IdleService from '../../services/idle-service'
 
-import './Header.css'
+import '../../css/main.css'
 
 class Header extends Component {
 
@@ -24,20 +24,20 @@ class Header extends Component {
 
     renderLogoutLinks() {
         return (
-                <ul className="Nav">
-                    <li><NavLink to='/add-trade' activeClassName="active">Add Trade</NavLink></li>
-                    <li><NavLink to='/trades' activeClassName="active">Trades</NavLink></li>
-                    <li><NavLink to='/my-trades' activeClassName="active">My Trades</NavLink></li>
-                    <li><NavLink onClick={this.handleLogoutClick} exact to='/'>Logout</NavLink></li>
+                <ul className="menu">
+                    <li className="menu__item"><NavLink to='/add-trade' className="menu__link" ><span className="menu__title"><span className="menu__first-word" data-hover="Add">Add</span><span> </span><span className="menu__second-word" data-hover="Trade">Trade</span></span></NavLink></li>
+                    <li className="menu__item"><NavLink to='/trades' className="menu__link" ><span className="menu__title"><span className="menu__first-word" data-hover="Active">Active</span><span> </span><span className="menu__second-word" data-hover="Trades">Trades</span></span></NavLink></li>
+                    <li className="menu__item"><NavLink to='/my-trades' className="menu__link" ><span className="menu__title"><span className="menu__first-word" data-hover="My">My</span><span> </span><span className="menu__second-word" data-hover="Trades">Trades</span></span></NavLink></li>
+                    <li className="menu__item"><NavLink onClick={this.handleLogoutClick} exact to='/' className="menu__link"><span className="menu__title"><span className="menu__first-word" data-hover="Sign">Sign</span><span> </span><span className="menu__second-word" data-hover="out">out</span></span></NavLink></li>
                 </ul>
         )
     }
 
     renderLoginLinks() {
         return (
-                <ul className='Nav'>
-                    <li><NavLink to='/login' activeClassName="active">Log in</NavLink></li>
-                    <li><NavLink exact to='/' activeClassName="active">Register</NavLink></li>
+                <ul className='menu'>
+                    <li className="menu__item"><NavLink to='/login' className="menu__link"><span className="menu__title"><span className="menu__first-word" data-hover="Log">Log</span><span> </span><span className="menu__second-word" data-hover="In">In</span></span></NavLink></li>
+                    <li className="menu__item"><NavLink exact to='/' className="menu__link"><span className="menu__title"><span className="menu__first-word" data-hover="Create">Create</span><span> </span><span className="menu__second-word" data-hover="Account">Account</span></span></NavLink></li>
                 </ul>
         )
     }
@@ -55,8 +55,8 @@ class Header extends Component {
         const { loggedIn } = this.context
         return (
             <div className="Navigation-bar">
-                <h1 className='site-title'>Things 2 Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
-                <nav>
+                <h1 className='site-title'>Things <span className="green">2</span> Trade{' '}<FontAwesomeIcon className='gold' icon={faExchangeAlt} /></h1>
+                <nav className="navigation">
                     {loggedIn === true
                         ? this.renderLogoutLinks()
                         : this.renderLoginLinks()}

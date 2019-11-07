@@ -22,11 +22,24 @@ export default class MyTrades extends Component {
     }
 
     renderMyTrades(){
-        const tradeList = this.context.myTrades.map((trade, i) => (
+        const tradeList = this.context.myTrades.map((trade) => (
             <AcceptedTradeItem key={trade.id} deleteTradeRequest={this.deleteTradeRequest.bind(this)} {...trade}/>
         ));
         return(
-            <ul>
+            <ul className='TradeList_list' aria-live='polite'>
+                {tradeList}
+            </ul>
+        );
+    }
+
+    renderAcceptedTrades(){
+        const tradeList = this.context.tradeList.map((trade) => {
+            if(trade.claim_user === this.context.userId && trade.active === false){
+                return <AcceptedTradeItem key={trade.id} {...trade} />
+            }
+        });
+        return(
+            <ul className='TradeList_list' aria-live='polite'>
                 {tradeList}
             </ul>
         );
@@ -49,23 +62,13 @@ export default class MyTrades extends Component {
 
         return (
             <>
-            <section>
-                <h2>My trades</h2>
-                <ul>
-                    {/* {usertrades.map(tradeItm => 
-                        <AcceptedTradeItem key={tradeItm.id} {...tradeItm}/>
-                    )} */}
+            <section className='TradeList'>
+                <h2>My Trades</h2>
                     {this.renderMyTrades()}
-                </ul>
             </section>
             <section className='TradeList'>
                 <h2>Accepted Trades</h2>
-                <ul className='TradeList_list' aria-live='polite'>
-                    {/* {acceptedTrades.map(trade =>
-                        <AcceptedTradeItem key={trade.id} {...trade} />
-                    )} */}
-                    
-                </ul>
+                    {this.renderAcceptedTrades()}
             </section>
             </>
         )

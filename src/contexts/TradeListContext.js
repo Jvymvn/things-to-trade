@@ -86,7 +86,10 @@ export class TradeListProvider extends Component {
                 }
                 return res.json()
             })
-        .catch(error => this.setState({ error }))
+        .catch(error => {
+            console.error(error);
+            this.setState({ error })
+        })
     }
 
     setError = error => {

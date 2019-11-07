@@ -37,7 +37,7 @@ export default class TradeItem extends Component {
                     'authorization': `bearer ${TokenService.getAuthToken()}`
                 }
             }
-    
+
             fetch(`${config.API_ENDPOINT}/trades/${trade.id}`, options)
                 .then(res => {
                     if (!res.ok)
@@ -65,25 +65,23 @@ export default class TradeItem extends Component {
 
         const { error } = this.state;
         return (
-                    <li className='TradeItem'>
-                        <h1 className='TradeItem_title'>{this.props.title}</h1>
-                        <div className='TradeItem_container'>
-                            <div className="TradeItem_give">
-                                <h1>You Give:</h1>
-                                <img src={this.props.image1} alt='YouGive' />
-                            </div>
-                            <div className='TradeItem_middle'>
-                                <FontAwesomeIcon className='gold' icon={faExchangeAlt} /><br />
-                                {error 
-                                ? <div role='alert' style={style.error}>{error && <p>{error}</p>}</div> 
-                                : <button type='Button' onClick={() => this.updateTradeActive(this.props)}><span>Accept</span></button>}
-                            </div>
-                            <div className='TradeItem_get'>
-                                <h1>You Get:</h1>
-                                <img src={this.props.image2} alt='YouGet' />
-                            </div>
-                        </div>
-                    </li>
+            <li className='TradeItem'>
+            <h3 className='TradeItem_title'>{this.props.title}</h3>
+            <div className='TradeItem_container'>
+                <div className="TradeItem_give">
+                    <h1>You Give:</h1>
+                    <div className='TradeItem_image_give'><img src={this.props.image1} alt='image1' /></div>
+                </div>
+                <div className='TradeItem_middle'>
+                    <FontAwesomeIcon id='middle_icon' icon={faExchangeAlt} /><br />
+                    <button type='Button' className="btn draw-border" onClick={() => this.updateTradeActive(this.props)}>Accept Trade</button>
+                </div>
+                <div className='TradeItem_get'>
+                    <h1>You Get:</h1>
+                    <div className='TradeItem_image_get'><img src={this.props.image2} alt='image2' /></div>
+                </div>
+            </div>
+            </li>
         )
     }
 }
