@@ -15,13 +15,36 @@ const TradeListContext = React.createContext({
 export default TradeListContext
 
 export class TradeListProvider extends Component {
-    state = {
-        tradeList: [],
-        error: null,
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            tradeList: [],
+            myTrades: [],
+            userId: null,
+            error: null
+        };
+    }
 
     setTradeList = tradeList => {
         this.setState({ tradeList })
+    }
+
+    setMyTrades = () => {
+        let trades = this.state.tradeList;
+        let id = this.state.userId;
+        const userTrades = [];
+        trades.forEach(trade => {
+            if(trade.user_id === id){
+                userTrades.push(trade);
+            }
+        })
+        this.setState({myTrades: userTrades})
+    }
+
+
+
+    setUserId = (userId) => {
+        this.setState({ userId: userId })
     }
 
     addTrade = trade => {
@@ -30,17 +53,9 @@ export class TradeListProvider extends Component {
         })
     }
 
-    deleteTrade = tradeId => {
-        const newTradeList = this.state.tradeList.map(trade => {
-            if (trade.id !== tradeId) {
-                return trade
-            } else {
-                return tradeId
-            }
-        })
-        this.setState({
-            tradeList: newTradeList
-        })
+    deleteTrade = (tradeId) => {
+        const newTradeList = this.state.tradeList.filter(trade => trade.id !== tradeId);
+        this.setState({ tradeList: newTradeList })
     }
 
     updateTrade = (tradeId, key, value) => {
@@ -50,8 +65,8 @@ export class TradeListProvider extends Component {
             }
             return trade
         })
-        console.log(tradeId)
-        console.log('New trade list', newTradeList)
+        // console.log(tradeId)
+        // console.log('New trade list', newTradeList)
         this.setState({
             tradeList: newTradeList
         })
@@ -71,8 +86,7 @@ export class TradeListProvider extends Component {
                 }
                 return res.json()
             })
-            .then(this.setTradeList)
-        // .catch(error => this.setState({ error }))
+        .catch(error => this.setState({ error }))
     }
 
     setError = error => {
@@ -87,6 +101,7 @@ export class TradeListProvider extends Component {
     render() {
         const contextValue = {
             tradeList: this.state.tradeList,
+            userId: this.state.userId,
             error: this.state.error,
             addTrade: this.addTrade,
             deleteTrade: this.deleteTrade,
@@ -95,6 +110,9 @@ export class TradeListProvider extends Component {
             clearError: this.clearError,
             setTradeList: this.setTradeList,
             fetchTrades: this.fetchTrades,
+            myTrades: this.state.myTrades,
+            setUserId: this.setUserId,
+            setMyTrades: this.setMyTrades,
         }
         return (
             <TradeListContext.Provider value={contextValue}>

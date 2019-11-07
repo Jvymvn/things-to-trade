@@ -5,12 +5,10 @@ import config from '../../config';
 import TradeListContext from '../../contexts/TradeListContext';
 import TokenService from '../../services/token-service';
 
-const imgStyle = {
-    width: '100%',
-    height: 'auto',
-}
-
 export default class TradeItem extends Component {
+
+    state = { error: null }
+
     static contextType = TradeListContext;
 
     parseJwt = (token) => {
@@ -25,73 +23,67 @@ export default class TradeItem extends Component {
 
 
     updateTradeActive = (trade) => {
-        let parsedJwtToken = this.parseJwt(localStorage.getItem(config.JWT_TOKEN))
+        let parsedJwtToken = this.parseJwt(localStorage.getItem(config.JWT_TOKEN));
 
-        fetch(`${config.API_ENDPOINT}/trades/${trade.id}`, {
-            method: 'PATCH',
-            body: JSON.stringify({ active: false, claim_user: parsedJwtToken.user_id }),
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
+        if(trade.user_id === parsedJwtToken.user_id){
+            console.error("Cannot accept trades you posted.");
+            this.setState({error: "Cannot accept trades you posted."})
+        } else {
+            const options = {
+                method: 'PATCH',
+                body: JSON.stringify({ active: false, claim_user: parsedJwtToken.user_id }),
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `bearer ${TokenService.getAuthToken()}`
+                }
             }
-        })
-            .then(res => {
-                if (!res.ok)
-                    return res.json().then(error => Promise.reject(error))
-
-            })
-            .then(() => {
-                this.context.updateTrade(trade.id, 'active', false)
-            })
-            .catch(error => {
-                console.error(error)
-                this.setState({ error })
-            })
+    
+            fetch(`${config.API_ENDPOINT}/trades/${trade.id}`, options)
+                .then(res => {
+                    if (!res.ok)
+                        return res.json().then(error => Promise.reject(error))
+    
+                })
+                .then(() => {
+                    this.context.updateTrade(trade.id, 'active', false)
+                })
+                .catch(error => {
+                    console.error(error)
+                    this.setState(error)
+                })
+        }
     }
 
     render() {
+        const style = {
+            'textAlign': 'center',
+            error: {
+                color: 'red',
+                'textAlign': 'center'
+            }
+        };
+
+        const { error } = this.state;
         return (
                     <li className='TradeItem'>
                         <h1 className='TradeItem_title'>{this.props.title}</h1>
                         <div className='TradeItem_container'>
                             <div className="TradeItem_give">
                                 <h1>You Give:</h1>
-                                <img src={this.props.image1} alt='image1' />
+                                <img src={this.props.image1} alt='YouGive' />
                             </div>
                             <div className='TradeItem_middle'>
-                                <FontAwesomeIcon className='gold' id='middle_icon' icon={faExchangeAlt} /><br />
-                                <button type='Button' id='Accept' onClick={() => this.updateTradeActive(this.props)}><span>Accept</span></button>
+                                <FontAwesomeIcon className='gold' icon={faExchangeAlt} /><br />
+                                {error 
+                                ? <div role='alert' style={style.error}>{error && <p>{error}</p>}</div> 
+                                : <button type='Button' onClick={() => this.updateTradeActive(this.props)}><span>Accept</span></button>}
                             </div>
                             <div className='TradeItem_get'>
                                 <h1>You Get:</h1>
-                                <img src={this.props.image2} alt='image2' />
+                                <img src={this.props.image2} alt='YouGet' />
                             </div>
                         </div>
                     </li>
         )
     }
 }
-
-// deleteTradeRequest = (tradeId) => {
-//     fetch(`${config.API_ENDPOINT}/trades`, {
-//         method: 'DELETE',
-//         headers: {
-//             'content-type': 'application/json',
-//             'authorization': `bearer ${TokenService.getAuthToken()}`
-//         }
-//     })
-//         .then(res => {
-//             if (!res.ok) {
-//                 return res.json().then(error => {
-//                     throw error
-//                 })
-//             }
-//             return res.json()
-//         })
-//         .then(data => {
-//             cb(tradeId)
-//         })
-//         .catch(error => {
-//             console.log(error)
-//         })
-// }

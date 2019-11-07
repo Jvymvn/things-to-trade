@@ -2,53 +2,69 @@ import React, { Component } from 'react'
 import TradeListContext from '../../contexts/TradeListContext'
 import AcceptedTradeItem from '../../components/AcceptedTradeItem/AcceptedTradeItem'
 import TokenService from '../../services/token-service'
-import config from '../../config'
+import config from '../../config';
+import TradeApiService from '../../services/trade-api-service';
 
 
 export default class MyTrades extends Component {
     static contextType = TradeListContext;
+    state = {error: null}
 
     componentDidMount() {
-        this.context.fetchTrades()
+        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN));
+        this.context.setUserId(parsedJwtPayload.user_id);
+       TradeApiService.getTrades()
+       .then(data => {
+           this.context.setTradeList(data);
+           this.context.setMyTrades();
+        })
+       .catch(res => this.setState({error: res.error}));
+    }
+
+    renderMyTrades(){
+        const tradeList = this.context.myTrades.map((trade, i) => (
+            <AcceptedTradeItem key={trade.id} deleteTradeRequest={this.deleteTradeRequest.bind(this)} {...trade}/>
+        ));
+        return(
+            <ul>
+                {tradeList}
+            </ul>
+        );
+    }
+
+    deleteTradeRequest = (tradeId) => {
+
+        TradeApiService.deleteTrade(tradeId)
+        .then(TradeApiService.getTrades()
+        .then(data => {
+            this.context.setTradeList(data);
+            this.context.setMyTrades();
+         }))
+        .catch(error => {
+            console.error(error)
+        });
     }
 
     render() {
-        //------------ Accepted Trades
-        const { tradeList } = this.context;
-        let parsedJwtPayload = TokenService.parseJwt(localStorage.getItem(config.JWT_TOKEN));
-        const acceptedTrades = [];
-        tradeList.forEach(trade => {
-            if (trade.claim_user === parsedJwtPayload.user_id && trade.active === false) {
-                acceptedTrades.push(trade);
-            }
-        })
-        ///////////////////
-        //------------- My trades
-        const usertrades = [];
-        tradeList.forEach(item => {
-            if(item.user_id === parsedJwtPayload.user_id){
-                usertrades.push(item);
-            }
-        })
-
-        ////////////////
 
         return (
             <>
             <section>
                 <h2>My trades</h2>
                 <ul>
-                    {usertrades.map(tradeItm => 
+                    {/* {usertrades.map(tradeItm => 
                         <AcceptedTradeItem key={tradeItm.id} {...tradeItm}/>
-                    )}
+                    )} */}
+                    {this.renderMyTrades()}
                 </ul>
             </section>
             <section className='TradeList'>
                 <h2>Accepted Trades</h2>
                 <ul className='TradeList_list' aria-live='polite'>
-                    {acceptedTrades.map(trade =>
+                    {/* {acceptedTrades.map(trade =>
                         <AcceptedTradeItem key={trade.id} {...trade} />
-                    )}
+                    )} */}
+                    
                 </ul>
             </section>
             </>
