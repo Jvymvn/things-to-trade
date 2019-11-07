@@ -22,7 +22,7 @@ export default class AcceptedItem extends Component {
                             </div>
                             <div className='TradeItem_middle'>
                             <FontAwesomeIcon id='middle_icon' icon={faExchangeAlt} /><br/>
-                            {this.props.user_id === parsedJwtPayload.user_id ? <button className="btn draw-border" onClick={() => this.props.deleteTradeRequest(this.props.id)}>Delete</button> : null}
+                            {(this.props.user_id === parsedJwtPayload.user_id && this.props.active === true) ? <button className="btn draw-border" onClick={() => this.props.deleteTradeRequest(this.props.id)}>Delete</button> : null}
                             </div>
                             <div className='TradeItem_get'>
                                 <h1>You Get:</h1>
