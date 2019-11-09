@@ -184,14 +184,6 @@ img {
 .green {
   color: green; }
 
-.mytrades {
-  width: 50%;
-  float: left; }
-
-.acceptedtrades {
-  width: 50%;
-  float: right; }
-
 table {
   color: white;
   background-color: grey;
@@ -234,3 +226,22 @@ table {
 
 .alreadyMem:hover {
   color: #0c8040; }
+
+@media screen and (min-width: 768px) {
+  .mytrades {
+    width: 50%;
+    float: left; }
+  .acceptedtrades {
+    width: 50%;
+    float: right; } }
+
+/*
+.mytrades{
+  width: 50%;
+  float: left;
+}
+.acceptedtrades{
+  width: 50%;
+  float: right;
+}
+*/

@@ -293,15 +293,6 @@ img{
   color: green;
 }
 
-.mytrades{
-  width: 50%;
-  float: left;
-}
-.acceptedtrades{
-  width: 50%;
-  float: right;
-}
-
 table{
   color: white;
   background-color: grey;
@@ -317,3 +308,25 @@ table{
 .alreadyMem:hover{
   color: $color-primary;
 }
+
+@media screen and (min-width: $medium) {
+  .mytrades{
+    width: 50%;
+    float: left;
+  }
+  .acceptedtrades{
+    width: 50%;
+    float: right;
+  }
+}
+
+/*
+.mytrades{
+  width: 50%;
+  float: left;
+}
+.acceptedtrades{
+  width: 50%;
+  float: right;
+}
+*/
