@@ -1,4 +1,4 @@
-# Things 2 Trade
+# Things 2 Trade (Version: 2)
 
 Things 2 Trade is an easy-to-use trading application for trading things.
 
@@ -31,21 +31,18 @@ New features will be added to enhance your trading experience.
 
 ## Screenshots
 
-![Imgur](https://i.imgur.com/7pGafCK.png)
-![Imgur](https://i.imgur.com/gb1D7q3.png)<br/>
+![Imgur](https://i.imgur.com/w76BIAh.png)
+![Imgur](https://i.imgur.com/zLN35Ui.png)
+![Imgur](https://i.imgur.com/G5Awrta.png)<br/>
 
 ## Mobile Views
 
 <p align="center">
-  <img src="https://i.imgur.com/9goKC69.png">
+  <img src="https://i.imgur.com/RLd1xk0.png">
 </p>
 
 <p align="center">
-  <img src="https://i.imgur.com/l3CYTXX.png">
-</p>
-
-<p align="center">
-  <img src="https://i.imgur.com/380KpRt.png">
+  <img src="https://i.imgur.com/7tf4DwX.png">
 </p>
 
 
