@@ -292,3 +292,28 @@ img{
 .green{
   color: green;
 }
+
+.mytrades{
+  width: 50%;
+  float: left;
+}
+.acceptedtrades{
+  width: 50%;
+  float: right;
+}
+
+table{
+  color: white;
+  background-color: grey;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.draw-border2 {
+  @include btn-border-drawing(white, $color-primary, 4px, bottom, right);
+  margin: 5px 5px 5px 5px;
+}
+
+.alreadyMem:hover{
+  color: $color-primary;
+}

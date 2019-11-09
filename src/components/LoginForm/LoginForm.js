@@ -47,7 +47,7 @@ export default class LoginForm extends Component {
                     {error && <p>{error}</p>}
                 </div>
                 <form onSubmit={this.handleSubmitJwtAuth}>
-                    <table border="3" align="center">
+                    <table align="center">
                         <tbody>
                         <tr>
                         <td><label>UserName</label></td>
@@ -68,7 +68,7 @@ export default class LoginForm extends Component {
                         </tr>
                         <tr>
                         <td align="center" colSpan="2">
-                            <Button type='submit'>
+                            <Button type='submit' className="btn draw-border2">
                             Login
                         </Button></td>
                         </tr>

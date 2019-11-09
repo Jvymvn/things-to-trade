@@ -52,7 +52,7 @@ export default class RegistrationForm extends Component {
                     {error && <p>{error}</p>}
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <table border="3" align="center">
+                    <table align="center">
                         <tbody>
                     <tr>
                         <td><label>
@@ -91,7 +91,7 @@ export default class RegistrationForm extends Component {
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" colSpan="2"><Button type='submit'>
+                        <td align="center" colSpan="2"><Button type='submit' className="btn draw-border2">
                             Register
                         </Button></td>
                     </tr>
@@ -99,7 +99,7 @@ export default class RegistrationForm extends Component {
                         <td align="center" colSpan="2">
                         <span>Already a member?</span>
                         <br />
-                        <Link to='/login' id='link2'>Login</Link>
+                        <Link to='/login' id='link2' className="alreadyMem">Login</Link>
                         </td>
                         </tr>
                         </tbody>

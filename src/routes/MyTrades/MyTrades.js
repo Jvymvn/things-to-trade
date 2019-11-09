@@ -62,11 +62,11 @@ export default class MyTrades extends Component {
 
         return (
             <>
-            <section className='TradeList'>
+            <section className='TradeList mytrades'>
                 <h2>My Trades</h2>
                     {this.renderMyTrades()}
             </section>
-            <section className='TradeList'>
+            <section className='TradeList acceptedtrades'>
                 <h2>Accepted Trades</h2>
                     {this.renderAcceptedTrades()}
             </section>

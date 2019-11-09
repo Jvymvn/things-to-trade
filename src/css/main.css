@@ -183,3 +183,54 @@ img {
 
 .green {
   color: green; }
+
+.mytrades {
+  width: 50%;
+  float: left; }
+
+.acceptedtrades {
+  width: 50%;
+  float: right; }
+
+table {
+  color: white;
+  background-color: grey;
+  border-radius: 10px;
+  padding: 1em; }
+
+.draw-border2 {
+  box-shadow: inset 0 0 0 4px white;
+  color: white;
+  transition: color 0.25s 0.08333s;
+  position: relative;
+  margin: 5px 5px 5px 5px; }
+  .draw-border2::before, .draw-border2::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0; }
+  .draw-border2::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px; }
+  .draw-border2::after {
+    border-top-width: 4px;
+    border-right-width: 4px; }
+  .draw-border2:hover {
+    color: #0c8040; }
+    .draw-border2:hover::before, .draw-border2:hover::after {
+      border-color: #0c8040;
+      transition: border-color 0s, width 0.25s, height 0.25s;
+      width: 100%;
+      height: 100%; }
+    .draw-border2:hover::before {
+      transition-delay: 0s, 0s, 0.25s; }
+    .draw-border2:hover::after {
+      transition-delay: 0s, 0.25s, 0s; }
+
+.alreadyMem:hover {
+  color: #0c8040; }

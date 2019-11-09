@@ -83,7 +83,7 @@ export default class AddTrade extends Component {
                     {error && <p>{error}</p>}
             </div>
             <form>
-            <table border="3" align="center">
+            <table align="center">
                 <tbody>
                 <tr>
                     <td><label>
@@ -131,11 +131,11 @@ export default class AddTrade extends Component {
                             /></td>
                 </tr>
                 <tr>
-                    <td align="center" colSpan="2"><Button type='button' onClick={this.handleClickCancel}>
+                    <td align="center" colSpan="2"><Button type='button' className="btn draw-border2" onClick={this.handleClickCancel}>
                             Cancel
                         </Button>
                         {' '}
-                        <Button type='submit' onClick={this.handleSubmit}>
+                        <Button type='submit' className="btn draw-border2" onClick={this.handleSubmit}>
                             Post Trade
                         </Button></td>
                 </tr>
