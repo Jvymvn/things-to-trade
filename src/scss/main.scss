@@ -66,7 +66,7 @@ a {
   padding: 6px 30px 3px;
   border-right: 2px dotted $color-border;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: 690px) {
     padding: 6px;
   }
 
@@ -80,10 +80,11 @@ a {
       transform: translate3d(0, 105%, 0);
     }
   }
+  
 
-  @media screen and (min-width: $medium) {
-    padding: 6px 40px 3px;
-  }
+  // @media screen and (min-width: $medium) {
+  //   padding: 6px 40px 3px;
+  // }
 }
 
 .menu__title {

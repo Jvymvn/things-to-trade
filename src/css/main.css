@@ -33,16 +33,13 @@ a {
   display: block;
   padding: 6px 30px 3px;
   border-right: 2px dotted #ccd7d7; }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 690px) {
     .menu__link {
       padding: 6px; } }
   .menu__link:hover .menu__first-word, .menu__link:focus .menu__first-word {
     transform: translate3d(0, -105%, 0); }
   .menu__link:hover .menu__second-word, .menu__link:focus .menu__second-word {
     transform: translate3d(0, 105%, 0); }
-  @media screen and (min-width: 768px) {
-    .menu__link {
-      padding: 6px 40px 3px; } }
 
 .menu__title {
   display: inline-block;

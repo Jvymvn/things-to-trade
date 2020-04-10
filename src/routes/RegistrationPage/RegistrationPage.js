@@ -26,6 +26,11 @@ export default class RegistrationPage extends Component {
                     <br /><br />2. Accept trades by pressing the ACCEPT button on a trade.<br /><br />3. View trades you accept by pressing the COMPLETED-TRADES button.</p>
                     <p>"Best of all, trading is free! Sign-up now & trade today!"</p>
                 </div>
+                <div className='landing_message'>
+                    <h1>Log In</h1>
+                    <p>Demo Username: dunder</p>
+                    <p>Demo Password: password</p>
+                </div>
                 <RegistrationForm onRegistrationSuccess={this.handleRegistrationSuccess} />
             </Section>
         )
